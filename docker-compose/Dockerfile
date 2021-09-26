@@ -31,6 +31,9 @@ RUN apt-get update && apt-get install -y \
 # Copy virtual host configuration from current path onto existing 000-default.conf
 COPY default.conf /etc/apache2/sites-available/000-default.conf
 
+# Copy custom php.ini config into container
+COPY php.ini /etc/php/8.0/apache2/php.ini
+
 # Copy cert and key from current path to apache dir
 RUN mkdir -p /etc/apache2/ssl/js-buchsi.ch/
 COPY ssl/cert.pem /etc/apache2/ssl/js-buchsi.ch/develop.crt
