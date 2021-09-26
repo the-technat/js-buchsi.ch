@@ -43,3 +43,8 @@ The docker-compose file contains a local mail service too. If you add the follow
   ]
 ],
 ```
+
+## Debugging
+
+### Invalid CSRF Token
+See https://forum.getkirby.com/t/can-not-log-in-to-panel-invalid-csrf-token/13526/4

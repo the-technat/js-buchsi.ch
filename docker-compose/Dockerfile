@@ -31,18 +31,24 @@ RUN apt-get update && apt-get install -y \
 # Copy virtual host configuration from current path onto existing 000-default.conf
 COPY default.conf /etc/apache2/sites-available/000-default.conf
 
+# Copy cert and key from current path to apache dir
+RUN mkdir -p /etc/apache2/ssl/js-buchsi.ch/
+COPY ssl/cert.pem /etc/apache2/ssl/js-buchsi.ch/develop.crt
+COPY ssl/key.pem /etc/apache2/ssl/js-buchsi.ch/develop.key
+
 # Remove default content (existing index.html)
 RUN rm /var/www/html/*
 
 # Activate Apache modules headers & rewrite
-RUN a2enmod headers rewrite
+RUN a2enmod headers rewrite ssl
 
 # Change web server's user id to match local user, replace with your local user id
 COPY entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["entrypoint.sh"]
 
-# Tell container to listen to port 80 at runtime
+# Tell container to listen to port 80,443 at runtime
 EXPOSE 80
+EXPOSE 443
 
 # Start Apache web server
 CMD [ "/usr/sbin/apache2ctl", "-DFOREGROUND" ]
