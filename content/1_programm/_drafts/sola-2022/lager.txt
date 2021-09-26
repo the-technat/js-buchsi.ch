@@ -1,0 +1,61 @@
+Title: SoLa 2022
+
+----
+
+Thema: Unbekannt
+
+----
+
+Leadtext: Hier kommt der LeadText vom Flyer hin sobald wir einen Flyer haben...
+
+----
+
+Fromdate: 2022-07-24
+
+----
+
+Todate: 2022-07-30
+
+----
+
+Location:
+
+lat: "47.212780265746"
+lon: "7.6978540420532"
+number: null
+city: null
+country: null
+postcode: null
+address: null
+
+----
+
+Signallowed: false
+
+----
+
+Signenddate: 
+
+----
+
+Signform: https://cloud.technat.ch/apps/forms/wrCYyi2eCCKggRBB
+
+----
+
+Fromtime: 14:00:00
+
+----
+
+Totime: 17:00:00
+
+----
+
+From: 2021-08-08
+
+----
+
+To: 2021-08-08
+
+----
+
+Text: 

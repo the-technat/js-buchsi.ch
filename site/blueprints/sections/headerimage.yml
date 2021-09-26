@@ -1,0 +1,13 @@
+type: files
+layout: cards
+empty: "Kein Header Image definiert, es wird zufällig eines aus der generellen Liste genommen."
+headline: "Header Image"
+help: "Header Bild auf dieser Seite. Bild muss mind 2100x900px gross sein."
+max: 1
+template: header-image
+size: huge
+info: "{{ file.dimensions }}"
+image:
+	ratio: 21/9
+	cover: true
+

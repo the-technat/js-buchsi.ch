@@ -1,0 +1,68 @@
+title: JS-Nami
+icon: calendar
+num: "{{ page.date.toDate('Ymd') }}"
+
+columns:
+  left:
+    width: 1/2
+    fields:
+      thema:
+        label: Thema
+        type: text
+        help: "Slogan vom Flyer"
+      special:
+        label: "Spezieller JS-Nami"
+        help: "Wenn angewählt wird der Eintrag in der Agend mit einem Stern vermerkt"
+        type: toggle
+        default: "normal"
+        text:
+          - "normal"
+          - "speziell"
+      infos:
+        type: textarea
+        label: Infos
+        help: "Kurze Erläuterung weshalb dieser JS-Nami speziell ist"
+        font: monospace
+        maxlenght: 500
+        size: medium
+        when:
+          special: on
+        required: true
+  right:
+    width: 1/2
+    fields:
+      date:
+        label: Wann
+        type: date
+        width: 1/2
+        default: today
+        display: DD.MM.YYYY
+        required: true
+        autofocus: true
+      fromtime:
+        label: Start
+        type: time
+        width: 1/2
+        default: "14:00"
+        required: true
+        notation: 24
+      totime:
+        label: Ende
+        type: time
+        width: 1/2
+        default: "17:00"
+        required: true
+        notation: 24
+      location:
+        label: Treffpunkt
+        type: locator
+        draggable: true
+        help: "Gibb eine Adresse ein um den Pin zu bekommen. Du kannst den Pin später immer noch verschieben. Fürs EGW gibts du \"Heidenmoosstrasse 25 3360 Herzogenbuchsee\" ein."
+        liststyle: columns
+        display:
+          - address
+          - number
+          - postcode
+          - city
+          - lat
+          - lon

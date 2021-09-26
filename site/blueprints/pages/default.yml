@@ -1,0 +1,30 @@
+title: Default Page
+icon: document
+
+sections:
+  headerImage:
+    extends: sections/headerimage
+  content:
+    type: fields
+    fields:
+      main:
+        label: Seiteninhalt
+        type: blocks
+        fieldsets:
+          text:
+            label: Text
+            type: group
+            # open: false
+            fieldsets:
+              - heading
+              - text
+              - list
+              - quote
+          media:
+            label: Medien
+            type: group
+            # open: false
+            fieldsets:
+              - image
+              - video
+              - gallery

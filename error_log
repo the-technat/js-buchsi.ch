@@ -1,0 +1,1 @@
+[01-Aug-2021 10:11:21 Europe/Zurich] PHP Fatal error:  require_once(): Failed opening required '/home/technatc/public_html/js-buchsi.ch/site/plugins/sylvainjule-kirby-locator-3b2931f/lib/languages/en.php' (include_path='.') in /home/technatc/public_html/js-buchsi.ch/site/plugins/sylvainjule-kirby-locator-3b2931f/index.php on line 27

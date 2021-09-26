@@ -1,0 +1,8 @@
+type: pages
+headline: Events
+parent: site.find("programm")
+sortBy: from desc
+templates:
+  - js-nami
+  - lager
+empty: Keine Events hier

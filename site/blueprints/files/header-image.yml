@@ -1,0 +1,12 @@
+title: header-image
+
+accept:
+  mime: image/*
+  minheight: 900
+  minwidth: 2100
+  orientation: landscape
+
+fields:
+  alt:
+    label: Alt Text
+    type: text

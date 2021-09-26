@@ -1,0 +1,37 @@
+Title: JS-Nami 4.9.2021
+
+----
+
+Thema: Seiltechnik
+
+----
+
+Special: false
+
+----
+
+Infos: 
+
+----
+
+Date: 2021-08-08
+
+----
+
+Fromtime: 14:00:00
+
+----
+
+Totime: 17:30:00
+
+----
+
+Location:
+
+lat: 47.1851129
+lon: '7.7082300701995'
+number: "25"
+city: Oberönz
+country: Switzerland
+postcode: "3360"
+address: Heidenmoosstrasse
