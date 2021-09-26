@@ -1,0 +1,16 @@
+calendar:
+  name: Kalender
+  icon: calendar
+  fields:
+    drafts:
+      type: pages
+      lab el: Unveröffentlichte Agendaeinträge
+      empty: Keine Events hier
+    unlisted:
+      type: pages
+      label: Gelistete Agendaeinträge
+      empty: Keine Events hier
+    listed:
+      type: pages
+      label: Veröffentlichte Agendaeinträge
+      empty: Keine Events hier

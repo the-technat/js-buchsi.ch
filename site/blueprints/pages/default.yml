@@ -17,7 +17,7 @@ tabs:
     columns:
       blocks:
         fields:
-          content:
+          editor:
             label: Seiteninhalt
             type: blocks
             help: Hier kannst du verschiedene Elemente hinzufügen, bearbeiten und in ihrer Reihenfolge anordnen. Die einzelnen Elemente werden in genau dieser Reihenfolge auf der entsprechenden Seite angezeigt
@@ -40,3 +40,8 @@ tabs:
                   - image
                   - video
                   - gallery
+              custom:
+                label: custom
+                type: group
+                fieldsets:
+                  - calendar

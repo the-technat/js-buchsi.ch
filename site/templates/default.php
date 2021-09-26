@@ -1,5 +1,9 @@
 <?php snippet('header') ?>
 
-  <?= $page->main()->toBlocks() ?>
+  <?php foreach ($page->editor()->toBlocks() as $block): ?>
+    <div id="<?= $block->id() ?>" class="block-type-<?= $block->type() ?>">
+      <?= $block ?>
+    </div>
+  <?php endforeach ?>
 
 <?php snippet('footer') ?>
