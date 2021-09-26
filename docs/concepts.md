@@ -1,16 +1,22 @@
 # Concepts and Logic
 
 ## Blueprints
-Wenn möglich wird der Default Blueprint verwendet. Er ist so aufgebaut das alle einfacheren Seitenlayoute mit ihm gestaltet werden können.
 
-### Special Blueprints
+
+### Page Blueprints
+Wenn möglich wird der Default Blueprint verwendet. Er ist so aufgebaut das alle einfacheren einspaltigen Seitenlayoute mit ihm gestaltet werden können.
+
 Spezielle Blueprints werden bisher nur für folgende Seiten verwendet:
-- Kalender -> in Abklärung ob man das auch anders machen kann
+- Kalender -> in Abklärung ob man auch einfach einen custom block machen könnte.
 
 ### File Blueprints
 - `header-image` ist ein spezieller Blueprint für Titelbilder.
 
-## Header Images
+## Snippets
+
+### Header
+
+#### Header Images
 Das Header Snippet braucht ein Header Image welches es laden kann. Dabei gibt es eine Logik:
 - Wenn die jeweilige Seite ein oder mehrere Files vom Typ `header-image` hat wird das erstbeste davon als Header Image genommen
 - Wenn das nicht der Fall ist wird zufällig ein Header Image aus den global definierten Header Images genommen

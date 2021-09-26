@@ -40,6 +40,11 @@ Icon
 # Sessions
 # ---------------
 
+# Logging
+# ---------------
+error_log
+access_log
+
 /site/sessions/*
 !/site/sessions/index.html
 
