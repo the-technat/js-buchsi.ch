@@ -1,30 +1,42 @@
-title: Default Page
+title: Standartseite
 icon: document
 
-sections:
-  headerImage:
-    extends: sections/headerimage
-  content:
-    type: fields
-    fields:
-      main:
-        label: Seiteninhalt
-        type: blocks
-        fieldsets:
-          text:
-            label: Text
-            type: group
-            # open: false
+tabs:
+  header:
+    label: "Header"
+    icon: file-image
+    columns:
+      image:
+        width: 1/1
+        sections:
+          headerImage:
+            extends: sections/headerimage
+  body:
+    label: "Inhalt"
+    icon: file-document
+    columns:
+      blocks:
+        fields:
+          content:
+            label: Seiteninhalt
+            type: blocks
+            help: Hier kannst du verschiedene Elemente hinzufügen, bearbeiten und in ihrer Reihenfolge anordnen. Die einzelnen Elemente werden in genau dieser Reihenfolge auf der entsprechenden Seite angezeigt
+            pretty: true
             fieldsets:
-              - heading
-              - text
-              - list
-              - quote
-          media:
-            label: Medien
-            type: group
-            # open: false
-            fieldsets:
-              - image
-              - video
-              - gallery
+              text:
+                label: Text
+                type: group
+                # open: false
+                fieldsets:
+                  - heading
+                  - text
+                  - list
+                  - quote
+              media:
+                label: Medien
+                type: group
+                # open: false
+                fieldsets:
+                  - image
+                  - video
+                  - gallery
