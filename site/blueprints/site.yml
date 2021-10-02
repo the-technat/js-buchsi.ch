@@ -4,14 +4,22 @@ unlisted: true
 sections:
   pages:
     type: pages
-	headerImages:
+  headerImages:
     type: files
-		headline: "Header Images"
-		help: "Fallback Bilder die im Header angezeigt werden falls kein Header Bild definiert ist. Bilder müssen mind 2100x900px gross sein."
-		min: 1
-		template: header-image
-		size: medium
-		info: "{{ file.dimensions }}"
-		image:
-			ratio: 21/9
-			cover: true
+    headline: "Header Images"
+    help: "Fallback Bilder die im Header angezeigt werden falls kein Header Bild definiert ist. Bilder müssen mind 2100x900px gross sein."
+    min: 1
+    template: header-image
+    size: medium
+    info: "{{ file.dimensions }}"
+    image:
+      ratio: 21/9
+      cover: true
+  contact:
+    type: fields
+    headline: "Kontaktinformationen"
+    help: "Kontaktinformationen werden im Footer jeder Seite eingeblendet."
+    fields:
+      owner:
+        type: text
+        label: "Inhaber"
