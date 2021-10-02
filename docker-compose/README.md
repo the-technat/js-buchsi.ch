@@ -8,7 +8,7 @@ Change the id of your local user in the `id.env` file. Find your correct id usin
 
 To use the correct domain names add the following line to `/etc/hosts`:
 ```
-127.0.0.1 js-buchsi.ch
+127.0.0.1 dev.js-buchsi.ch
 ```
 
 ## Docker
@@ -20,7 +20,7 @@ docker run -d --name mycontainer -p 80:80 \
   docker-starterkit:dev
 ```
 
-You can visit the page at `http://js-buchsi.ch:80`
+You can visit the page at `https://dev.js-buchsi.ch`
 
 ### Docker-compose
 ```bash

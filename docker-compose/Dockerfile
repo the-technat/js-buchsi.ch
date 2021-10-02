@@ -1,4 +1,4 @@
-# Use offical ubuntu:20.04 image
+# Use offical ubuntu:21.10 image
 FROM ubuntu:21.10
 
 # Set timezone
@@ -35,9 +35,9 @@ COPY default.conf /etc/apache2/sites-available/000-default.conf
 COPY php.ini /etc/php/8.0/apache2/php.ini
 
 # Copy cert and key from current path to apache dir
-RUN mkdir -p /etc/apache2/ssl/js-buchsi.ch/
-COPY ssl/cert.pem /etc/apache2/ssl/js-buchsi.ch/develop.crt
-COPY ssl/key.pem /etc/apache2/ssl/js-buchsi.ch/develop.key
+RUN mkdir -p /etc/apache2/ssl/dev.js-buchsi.ch/
+COPY ssl/cert.pem /etc/apache2/ssl/dev.js-buchsi.ch/develop.crt
+COPY ssl/key.pem /etc/apache2/ssl/dev.js-buchsi.ch/develop.key
 
 # Remove default content (existing index.html)
 RUN rm /var/www/html/*

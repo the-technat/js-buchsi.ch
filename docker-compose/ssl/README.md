@@ -1,7 +1,6 @@
 # Self-signed Cert
 Generated with the following command:
-```
-                                                              
+```bash
  ✘  ~/code/js-buchsi.ch/docker-compose/ssl   master ±  openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 3600 -nodes
 Generating a RSA private key
 ....................++++
@@ -20,7 +19,7 @@ State or Province Name (full name) [Some-State]:Bern
 Locality Name (eg, city) []:Herzogenbuchsee
 Organization Name (eg, company) [Internet Widgits Pty Ltd]:BESJ Jungschar Herzogenbuchsee
 Organizational Unit Name (eg, section) []:IT
-Common Name (e.g. server FQDN or YOUR name) []:js-buchsi.ch
+Common Name (e.g. server FQDN or YOUR name) []:dev.js-buchsi.ch
 Email Address []:web@js-buchsi.ch  
 ```
 
