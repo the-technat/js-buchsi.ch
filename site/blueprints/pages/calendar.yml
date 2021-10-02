@@ -27,7 +27,7 @@ tabs:
               - lager
             status: draft
             headline: "Unveröffentlichte Agendaeinträge"
-            help: "Unveröffentlichte Agendaeinträge sind Entwürfe, sie sind nur sichtbar wenn man eingeloggt"
+            help: "Unveröffentlichte Agendaeinträge sind Entwürfe, sie sind nur sichtbar wenn man eingeloggt ist."
           unlisted:
             type: pages
             sortBy: from desc
@@ -37,7 +37,7 @@ tabs:
               - lager
             status: unlisted
             headline: "Gelistete Agendaeinträge"
-            help: "Gelistete Agendaeinträge werden auf der Seite angezeigt."
+            help: "Gelistete Agendaeinträge können über den direkten Link aufgerufen werden (auch ohne Login)."
           listed:
             type: pages
             sortBy: from desc
@@ -47,4 +47,4 @@ tabs:
               - lager
             status: listed
             headline: "Veröffentlichte Agendaeinträge"
-            help: "Veröffentlichte Agendaeinträge werden auf der Seite angezeigt und sind in der Navigation sichtbar."
+            help: "Veröffentlichte Agendaeinträge werden im Kalendar angezeigt. Lager werden zusätzlich in der Navigation als Unterseite auftauchen."

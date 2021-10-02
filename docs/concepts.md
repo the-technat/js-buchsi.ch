@@ -7,7 +7,12 @@
 Wenn möglich wird der Default Blueprint verwendet. Er ist so aufgebaut das alle einfacheren einspaltigen Seitenlayoute mit ihm gestaltet werden können.
 
 Spezielle Blueprints werden bisher nur für folgende Seiten verwendet:
-- Kalender -> in Abklärung ob man auch einfach einen custom block machen könnte.
+- Kalender
+
+#### Kalender
+Mittels Subpages werden Kalendereinträge erstellt. Sie folgen den drei Stadien die jede Kirby Page hat.
+
+Folgendes Problem tut sich damit auf: Alle Kalendereinträge sind in der Navigation sichtbar 
 
 ### File Blueprints
 - `header-image` ist ein spezieller Blueprint für Titelbilder.

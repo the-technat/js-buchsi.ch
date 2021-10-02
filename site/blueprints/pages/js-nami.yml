@@ -22,7 +22,7 @@ columns:
         type: textarea
         label: Infos
         help: "Kurze Erläuterung weshalb dieser JS-Nami speziell ist"
-        font: monospace
+        font: rubik
         maxlenght: 500
         size: medium
         when:
