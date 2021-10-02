@@ -1,5 +1,5 @@
 title: Lager
-icon: calendar
+icon: road-sign
 num: "{{ page.date.toDate('Ymd') }}"
 
 columns:
@@ -67,6 +67,8 @@ columns:
         required: true
       signform:
         type: url
+        when:
+          signallowed: on
+        required: true
         label: Anmeldeformular
         help: "Link zum Anmeldeformular (externer Service)"
-

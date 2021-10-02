@@ -1,5 +1,5 @@
 title: JS-Nami
-icon: calendar
+icon: box
 num: "{{ page.date.toDate('Ymd') }}"
 
 columns:

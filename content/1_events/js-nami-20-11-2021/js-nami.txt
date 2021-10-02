@@ -1,8 +1,8 @@
-Title: JS-Nami-21-04
+Title: JS-Nami 20.11.2021
 
 ----
 
-Thema: Das feurige Waldspiel
+Thema: Du bist wunderbar beschenkt
 
 ----
 
@@ -14,7 +14,7 @@ Infos:
 
 ----
 
-Date: 2021-10-22
+Date: 2021-11-20
 
 ----
 

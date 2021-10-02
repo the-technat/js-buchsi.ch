@@ -1,0 +1,37 @@
+Title: JS-Nami 6.11.2021
+
+----
+
+Thema: Punchinello und das allerschönste Geschenk
+
+----
+
+Special: false
+
+----
+
+Infos: 
+
+----
+
+Date: 2021-11-06
+
+----
+
+Fromtime: 14:00:00
+
+----
+
+Totime: 17:00:00
+
+----
+
+Location:
+
+lat: 47.1851129
+lon: '7.7082300701995'
+number: "25"
+city: Oberönz
+country: Switzerland
+postcode: "3360"
+address: Heidenmoosstrasse

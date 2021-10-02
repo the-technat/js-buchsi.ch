@@ -1,0 +1,42 @@
+Title: SoLa 2022
+
+----
+
+Thema: Unbekannt
+
+----
+
+Leadtext:
+
+Placeholder für das SoLa 2022.
+
+Datum ist bereits fixiert.
+
+----
+
+Fromdate: 2022-07-09
+
+----
+
+Todate: 2022-07-30
+
+----
+
+Location:
+
+lat: 54.6948359
+lon: 13.4881592
+city: Mecklenburg-Vorpommern
+country: Germany
+
+----
+
+Signallowed: false
+
+----
+
+Signenddate: 
+
+----
+
+Signform: 

@@ -1,0 +1,37 @@
+Title: JS-Nami 21.08.2021
+
+----
+
+Thema: Du bist einmalig!
+
+----
+
+Special: true
+
+----
+
+Infos: Wir treffen uns direkt am vermerkten Treffpunkt und werden den ganzen Nachmittag draussen sein. Wenn möglich nimm noch ein Hackeli mit und gute Schuhe!
+
+----
+
+Date: 2021-08-21
+
+----
+
+Fromtime: 14:00:00
+
+----
+
+Totime: 17:30:00
+
+----
+
+Location:
+
+lat: '47.198872621059'
+lon: '7.7100205421448'
+number: null
+city: null
+country: null
+postcode: null
+address: null
