@@ -1,0 +1,50 @@
+title: Kalenderseite
+icon: calendar
+
+tabs:
+  general:
+    label: "Allgemein"
+    icon: dashboard
+    columns:
+      image:
+        width: 1/1
+        sections:
+          headerImage:
+            extends: sections/headerimage
+  calendar:
+    label: "Kalender"
+    icon: calendar
+    columns:
+      entries:
+        width: 1/1
+        sections:
+          drafts:
+            type: pages
+            sortBy: from desc
+            empty: "Keine Events"
+            templates:
+              - js-nami
+              - lager
+            status: draft
+            headline: "Unveröffentlichte Agendaeinträge"
+            help: "Unveröffentlichte Agendaeinträge sind Entwürfe, sie sind nur sichtbar wenn man eingeloggt"
+          unlisted:
+            type: pages
+            sortBy: from desc
+            empty: "Keine Events"
+            templates:
+              - js-nami
+              - lager
+            status: unlisted
+            headline: "Gelistete Agendaeinträge"
+            help: "Gelistete Agendaeinträge werden auf der Seite angezeigt."
+          listed:
+            type: pages
+            sortBy: from desc
+            empty: "Keine Events"
+            templates:
+              - js-nami
+              - lager
+            status: listed
+            headline: "Veröffentlichte Agendaeinträge"
+            help: "Veröffentlichte Agendaeinträge werden auf der Seite angezeigt und sind in der Navigation sichtbar."

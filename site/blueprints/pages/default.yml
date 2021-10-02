@@ -40,8 +40,3 @@ tabs:
                   - image
                   - video
                   - gallery
-              custom:
-                label: custom
-                type: group
-                fieldsets:
-                  - calendar

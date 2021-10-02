@@ -55,11 +55,5 @@ Editor:
         "id": "9a320f25-053e-446a-8a03-5f2217eb8600",
         "isHidden": false,
         "type": "list"
-    },
-    {
-        "content": [],
-        "id": "95e4c526-c09e-4343-9bcb-e994f691da06",
-        "isHidden": false,
-        "type": "calendar"
     }
 ]
