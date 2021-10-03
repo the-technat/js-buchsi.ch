@@ -20,14 +20,14 @@ columns:
   right:
     width: 1/2
     fields:
-      fromdate:
+      startdate:
         label: Von
         type: date
         width: 1/2
         display: DD.MM.YYYY
         required: true
         autofocus: true
-      todate:
+      enddate:
         label: Bis
         type: date
         width: 1/2

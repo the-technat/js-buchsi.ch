@@ -1,11 +1,21 @@
 /*-----------------------------------------------------------------------------------*/
 /*  Section Events
 /*-----------------------------------------------------------------------------------*/
-section .events {
+.events {
   padding: 3rem 0;
-  background-color: #D0BA95;
+  background-color: #ffcc00;
 }
 
 .event {
-  background-color: #ffffff;
+  background-color: #ffccff;
+  margin-bottom: 5px;
+}
+
+.special {
+  background-color: #ccffff;
+}
+
+.event-location {
+  background-color: #134f4c;
+
 }

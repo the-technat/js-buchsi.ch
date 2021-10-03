@@ -14,11 +14,11 @@ Datum ist bereits fixiert.
 
 ----
 
-Fromdate: 2022-07-09
+Startdate: 2022-07-24
 
 ----
 
-Todate: 2022-07-30
+Enddate: 2022-07-30
 
 ----
 
