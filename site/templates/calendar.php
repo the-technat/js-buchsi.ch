@@ -24,7 +24,10 @@
         <p><?= $event->infos() ?></p>
 
         <div class="event-location">
-            <?= $event->location()->html() ?>
+          <?php $location = $event->location()->toLocation() ?>
+          <p>Strasse: <?= $location->address() ?> <?= $location->number() ?></p>
+          <p>PLZ: <?= $location->postcode() ?></p>
+          <p>Ort: <?= $location->city() ?></p>
         </div>
 
       </li>

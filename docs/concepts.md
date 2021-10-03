@@ -1,7 +1,14 @@
 # Concepts and Logic
 
-## Blueprints
+## Plugins
 
+### Locator
+https://getkirby.com/plugins/sylvainjule/locator
+https://github.com/sylvainjule/kirby-locator
+
+Wird für den `JS-Nami` und `Lager` blueprint verwendet.
+
+## Blueprints
 
 ### Page Blueprints
 Wenn möglich wird der Default Blueprint verwendet. Er ist so aufgebaut das alle einfacheren einspaltigen Seitenlayoute mit ihm gestaltet werden können.
@@ -12,7 +19,7 @@ Spezielle Blueprints werden bisher nur für folgende Seiten verwendet:
 #### Kalender
 Mittels Subpages werden Kalendereinträge erstellt. Sie folgen den drei Stadien die jede Kirby Page hat.
 
-Folgendes Problem tut sich damit auf: Alle Kalendereinträge sind in der Navigation sichtbar 
+Folgendes Problem tut sich damit auf: Alle Kalendereinträge sind in der Navigation sichtbar
 
 ### File Blueprints
 - `header-image` ist ein spezieller Blueprint für Titelbilder.
