@@ -16,10 +16,14 @@
 </head>
 <body>
   <header>
-    <div class="container header-top">
-      <?php snippet('menu') ?>
+    <div class="container header">
+      <?php $logo=asset('assets/icons/Logo-JB.svg') ?>
+      <a class="logo" href=<?= page('home')->url() ?>><?= $logo->read() ?></a>
+      <?php snippet('nav') ?>
     </div>
-    <?php snippet('headerImage') ?>
+    <div class="header-image">
+      <?php snippet('headerImage') ?>
+    </div>
   </header>
   <main>
    <div class="container main">

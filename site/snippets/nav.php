@@ -1,5 +1,3 @@
-<?php $logo=asset('assets/icons/Logo-JB.svg') ?>
-<a class="logo" href=<?= page('home')->url() ?>><?= $logo->read() ?></a>
 <nav>
   <ul>
     <?php foreach ($site->children()->listed() as $item): ?>
