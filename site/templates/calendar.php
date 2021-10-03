@@ -7,28 +7,35 @@
       if ($events->count() > 0):
     ?>
     <ul>
-      <?php foreach ($events as $event): ?>
+      <?php foreach ($events as $event): ?>      
       <?php if ($event->special() == "true") : ?>
+        <?php $toggleclass = 'moreinfo'; ?>
         <li class="event special">
       <?php else: ?>
+        <?php $toggleclass = ''; ?>
         <li class="event">
       <?php endif ?>
-        <h3><?= $event->thema()->html() ?></h3>
+        <div class="event-header <?=$toggleclass?>">
+          <h3><?= $event->thema()->html() ?></h3>
 
-        <?php if ($event->blueprint()->title() == "JS-Nami") : ?>
-          <time><?= $event->date()->toDate('d.m.Y') ?></time>
-        <?php else: ?>
-          <time><?= $event->startdate()->toDate('d.m.Y') ?> - <?= $event->enddate()->toDate('d.m.Y') ?></time>
-        <?php endif ?>
-
-        <p><?= $event->infos() ?></p>
-
-        <div class="event-location">
-          <?php $location = $event->location()->toLocation() ?>
-          <p>Strasse: <?= $location->address() ?> <?= $location->number() ?></p>
-          <p>PLZ: <?= $location->postcode() ?></p>
-          <p>Ort: <?= $location->city() ?></p>
+          <?php if ($event->blueprint()->title() == "JS-Nami") : ?>
+            <time><?= $event->date()->toDate('d.m.Y') ?></time>
+          <?php else: ?>
+            <time><?= $event->startdate()->toDate('d.m.Y') ?> - <?= $event->enddate()->toDate('d.m.Y') ?></time>
+          <?php endif ?>
         </div>
+
+        <?php if ($event->special() == "true") : ?>
+        <div class="event-contentmore">
+          <div class="event-infos"><?= $event->infos() ?></div>
+          <div class="event-location">
+            <?php $location = $event->location()->toLocation() ?>
+            <p>Strasse: <?= $location->address() ?> <?= $location->number() ?></p>
+            <p>PLZ: <?= $location->postcode() ?></p>
+            <p>Ort: <?= $location->city() ?></p>
+          </div>
+        </div>
+        <?php endif ?>
 
       </li>
       <?php endforeach ?>
