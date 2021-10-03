@@ -6,6 +6,7 @@
   <!-- CSS -->
   <?= css('assets/css/index.css') ?>
   <?= css('@auto') ?>
+  <?= js('@auto',true) ?>
   <!-- Facicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="<?= asset('assets/icons/favicon/favicon-32x32.png')->url() ?>">
   <link rel="icon" type="image/png" sizes="16x16" href="<?= asset('assets/icons/favicon/favicon-16x16.png')->url() ?>">

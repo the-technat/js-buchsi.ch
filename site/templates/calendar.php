@@ -16,13 +16,12 @@
         <li class="event">
       <?php endif ?>
         <div class="event-header <?=$toggleclass?>">
-          <h3><?= $event->thema()->html() ?></h3>
-
           <?php if ($event->blueprint()->title() == "JS-Nami") : ?>
             <time><?= $event->date()->toDate('d.m.Y') ?></time>
           <?php else: ?>
             <time><?= $event->startdate()->toDate('d.m.Y') ?> - <?= $event->enddate()->toDate('d.m.Y') ?></time>
           <?php endif ?>
+          <h3><?= $event->thema()->html() ?></h3>
         </div>
 
         <?php if ($event->special() == "true") : ?>
