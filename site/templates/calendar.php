@@ -7,7 +7,7 @@
       if ($events->count() > 0):
     ?>
     <ul>
-      <?php foreach ($events as $event): ?>      
+      <?php foreach ($events as $event): ?>
       <?php if ($event->special() == "true") : ?>
         <?php $toggleclass = 'moreinfo'; ?>
         <li class="event special">
@@ -17,7 +17,7 @@
       <?php endif ?>
         <div class="event-header <?=$toggleclass?>">
           <?php if ($event->blueprint()->title() == "JS-Nami") : ?>
-            <time><?= $event->date()->toDate('d.m.Y') ?></time>
+            <time><?= $event->date()->toDate('d.m.Y') ?> <?= $event->starttime() ?> - <?= $event->endtime() ?></time>
           <?php else: ?>
             <time><?= $event->startdate()->toDate('d.m.Y') ?> - <?= $event->enddate()->toDate('d.m.Y') ?></time>
           <?php endif ?>

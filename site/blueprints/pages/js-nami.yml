@@ -39,14 +39,14 @@ columns:
         display: DD.MM.YYYY
         required: true
         autofocus: true
-      fromtime:
+      starttime:
         label: Start
         type: time
         width: 1/2
         default: "14:00"
         required: true
         notation: 24
-      totime:
+      endtime:
         label: Ende
         type: time
         width: 1/2

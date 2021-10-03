@@ -10,7 +10,7 @@ Special: false
 
 ----
 
-Infos: 
+Infos:
 
 ----
 
@@ -18,11 +18,11 @@ Date: 2021-12-04
 
 ----
 
-Fromtime: 14:00:00
+Starttime: 14:00:00
 
 ----
 
-Totime: 17:00:00
+Endtime: 17:00:00
 
 ----
 
