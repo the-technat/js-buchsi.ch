@@ -56,6 +56,8 @@ columns:
       location:
         label: Treffpunkt
         type: locator
+        when:
+          special: on
         draggable: true
         help: "Gibb eine Adresse ein um den Pin zu bekommen. Du kannst den Pin später immer noch verschieben. Fürs EGW gibts du \"Heidenmoosstrasse 25 3360 Herzogenbuchsee\" ein."
         liststyle: columns
