@@ -28,6 +28,15 @@ columns:
         when:
           special: on
         required: true
+      hideFromNav:
+        label: "Sichtbarkeit in Navigation"
+        help: "Diese Seite von der Navigation ausblenden?"
+        type: toggle
+        disabled: true
+        default: "ausblenden"
+        text: 
+          - "einblenden"
+          - "ausblenden"
   right:
     width: 1/2
     fields:

@@ -35,3 +35,7 @@ city: Oberönz
 country: Switzerland
 postcode: "3360"
 address: Heidenmoosstrasse
+
+----
+
+Hidefromnav: true

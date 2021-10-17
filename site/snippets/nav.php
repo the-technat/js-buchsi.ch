@@ -6,7 +6,9 @@
         <?php if ($item->hasChildren()): ?>
           <ul class="subnav">
             <?php foreach ($item->children()->listed() as $subitem): ?>
-              <li><a href="<?= $subitem->url() ?>"><?= $subitem->title() ?></a></li>
+              <?php if($subitem->hidefromnav()->toBool() === false ): ?>
+                <li><a href="<?= $subitem->url() ?>"><?= $subitem->title() ?></a></li>
+              <?php endif ?>
             <?php endforeach ?>
           </ul>
         <?php endif ?>

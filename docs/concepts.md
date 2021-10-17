@@ -34,3 +34,23 @@ Das Header Snippet braucht ein Header Image welches es laden kann. Dabei gibt es
 - Wenn das nicht der Fall ist wird zufällig ein Header Image aus den global definierten Header Images genommen
 
 Caveat: Ein Blueprint (z.B der Default Blueprint) muss dem User die Möglichkeit geben ein Header Image zu setzen welches dann vom korrekten Typ ist. Da wir aber eine predefined section für dieses Szenario haben ist es sowohl einfach als auch naheliegen das neue Blueprints das implementieren werden.
+
+### Navigation
+Die Navigation hat ein Opt-Out Prinzip. Grundsätzlich werden alle Seiten und eine Reihe an Unterseiten in der Navigation dargestellt. Wenn dies für eine Seite nicht gewünscht ist kann folgendes Feld im entsprechenden Blueprint hinterlegt werden:
+```yaml
+fields:
+  hideFromNav:
+    label: "Sichtbarkeit in Navigation"
+    help: "Diese Seite von der Navigation ausblenden?"
+    type: toggle
+    text: 
+      - "einblenden"
+      - "ausblenden"
+```
+
+Folgender Ausschnitt aus dem `nav.php` snippet ermöglicht dies:
+```php
+<?php if($subitem->hidefromnav()->toBool() === false ): ?>
+  <li><a href="<?= $subitem->url() ?>"><?= $subitem->title() ?></a></li>
+<?php endif ?>
+```
