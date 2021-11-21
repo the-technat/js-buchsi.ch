@@ -95,6 +95,20 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 15px;
   }
 }
+
+.filebutton {
+  background-color: #0E1530;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.filebutton:hover {
+  background-color:  #244538;
+}
+
 /*-----------------------------------------------------------------------------------*/
 /*  Header Styling
 /*-----------------------------------------------------------------------------------*/

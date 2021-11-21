@@ -6,11 +6,27 @@ tabs:
     label: "Allgemein"
     icon: dashboard
     columns:
-      image:
+      main:
         width: 1/1
         sections:
           headerImage:
             extends: sections/headerimage
+          intro:
+            type: fields
+            headline: Beschreibung
+            fields:
+              intro:
+                label: Beschreibung
+                type: textarea
+                help: Beschreibung des Programms
+          flyer:
+            headline: Flyer
+            empty: "Momentan kein Flyer hochgeladen"
+            help: "Aktueller JS-Flyer zum Programm"
+            type: files
+            template: flyer
+            layout: cards
+            max: 1
   calendar:
     label: "Kalender"
     icon: calendar

@@ -1,7 +1,9 @@
 <?php snippet('header') ?>
-  <section class="events">
+  <section class="intro">
     <h1><?= $page->title()->html() ?></h1>
-
+   <?= $page->intro()->kirbytext() ?> 
+  </section>
+  <section class="events">
     <?php
       $events = $page->children()->listed();
       if ($events->count() > 0):
@@ -40,6 +42,10 @@
       <?php endforeach ?>
     </ul>
     <?php endif ?>
-
+  </section>
+  <section class="download">
+    <a href="<?= $page->files()->filterBy('template', 'flyer')->first()->mediaUrl() ?>">
+      <button class="filebutton"><k-icon type="document" />Flyer</button>
+    </a>
   </section>
 <?php snippet('footer') ?>
