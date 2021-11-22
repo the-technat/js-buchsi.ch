@@ -1,0 +1,11 @@
+# Ref: https://savjee.be/2019/04/gitlab-ci-deploy-to-ftp-with-lftp/
+image: debian:bullseye
+
+before_script:
+  - apt-get update -qy
+  - apt-get install -y lftp
+
+build:
+  script:
+    # Sync to SFTP
+    - lftp -e "open technat.cyon.site; user $FTP_USERNAME $FTP_PASSWORD; mirror --reverse --verbose --delete ./ ./; bye"
