@@ -1,5 +1,4 @@
 # Ref: https://savjee.be/2019/04/gitlab-ci-deploy-to-ftp-with-lftp/
-image: debian:bullseye
 
 before_script:
   - apt-get update -qy
