@@ -8,6 +8,8 @@
     SOURCE_BRANCH: "develop"
     GIT_USER: "sammy"
     GIT_PASS: "superSecure"
+    ENABLE_BACKUP: “true"
+    BACKUP_DEST: "/home/technatc/webroot-backups/preview.js-buchsi.ch"
   tasks:
   - name: Sync files to {{ SOURCE_BRANCH }} version
     git:
@@ -23,3 +25,11 @@
       group: "{{ PERM_GROUP }}"
       mode: u=rwX,g=rX,o=rX
       recurse: yes
+  - name: Cronjob for content backup
+    cron:
+      name: js-buchsi content backup
+      minute: '0'
+      hour: '*/1'
+      user: "{{ PERM_OWNER }}"
+      job: 'rsync -av {{ WEBROOT }}/ {{ BACKUP_DEST }} > /dev/null 2>&1'
+    when: ENABLE_BACKUP == "true"
