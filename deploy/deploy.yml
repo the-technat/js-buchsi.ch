@@ -15,7 +15,7 @@
       single_branch: yes
       accept_hostkey: yes
       key_file: "{{ GIT_SSH_KEY }}" 
-      updates: yes
+      update: yes
       version: "{{ SOURCE_BRANCH }}"
   - name: Permissions on webroot
     file:
