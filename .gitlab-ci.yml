@@ -34,7 +34,7 @@ deploy_preview:
     - eval $(ssh-agent -s)
     - ssh-add "$ansible_private_key" 
   script:
-  - ansible-playbook ${ANSIBLE_ROOT}/deploy.yml -v -e GIT_USER=${git_clone_token_user} -e GIT_PASS=${git_clone_token_pass}"  
+  - ansible-playbook ${ANSIBLE_ROOT}/deploy.yml -v -e GIT_USER=${git_clone_token_user} -e GIT_PASS=${git_clone_token_pass}  
   only:
   - develop
 
