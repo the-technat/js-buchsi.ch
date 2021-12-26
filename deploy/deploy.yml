@@ -1,0 +1,26 @@
+---
+- name: JS-Buchsi Website Deployment 
+  hosts: all
+  vars: # all variables used to deploy are defined here
+    WEBROOT: "/home/technatc/public_html/js-buchsi.ch/preview/"
+    PERM_OWNER: "technatc"
+    PERM_GROUP: "technatc"
+    SOURCE_BRANCH: "develop"
+    GIT_SSH_KEY: "~/.ssh/id_rsa"
+  tasks:
+  - name: Sync files to {{ SOURCE_BRANCH }} version
+    git:
+      repo: git@gitlab.com:technat/js-buchsi-ch.git
+      dest: "{{ WEBROOT }}"
+      single_branch: yes
+      accept_hostkey: yes
+      key_file: "{{ GIT_SSH_KEY }}" 
+      updates: yes
+      version: "{{ SOURCE_BRANCH }}"
+  - name: Permissions on webroot
+    file:
+      dest: "{{ WEBROOT }}"
+      owner: "{{ PERM_OWNER }}" 
+      group: "{{ PERM_GROUP }}"
+      mode: u=rwX,g=rX,o=rX
+      recurse: yes

@@ -1,48 +1,49 @@
-## Installation
-- Domain js-buchsi.ch bei Cyon registrieren
-- Domain auf Webhosting einrichten, Domain `js-buchsi.ch` zeigt auf `~/public_html/js-buchsi.ch`
-- SSL Certs abholen mit dem One-Click
-- SSL-Redirect einrichten mit dem Häckchen
+# Installation
 
-## Webroot 
-Auf den Webserver verbinden und ins Webroot wechseln.
+## Repository
 
-Mit git das Repo herunterladen:
-```bash
-git clone https://git.technat.cloud/technat/js-buchsi.ch.git .
-```
-### File Permissions
-Source: https://www.smashingmagazine.com/2014/05/proper-wordpress-filesystem-permissions-ownerships/
-Coming soon: https://getkirby.com/docs/guide/security#file-permissions
-Cyon: https://www.cyon.ch/support/a/datei-berechtigungen-unter-linux
+Die js-buchsi webseite braucht ein privates Repository namens `js-buchsi.ch` mit `develop` als Default Branch.  
 
-Cyon braucht eine shared Server konfiguration wo der Webserver als  `technatc` läuft (PHP files auch).  Wir könnend die Permissions also folgendermassen setzten:
-```bash
-chown technatc:nobody ./js-buchsi.ch # bereits durch cyon gesetzt, kann nicht verändert werden
-chmod 750 js-buchsi.ch # bereits durch cyon gesetzt, kann nicht verändert werden
+Folgende Protections müssen existieren:
 
-cd js-buchsi.ch
-chown technatc:technatc -R ./ # alles gehört mir und da der Webserver als ich läuft wird als Gruppe auch ich gesetzt, spielt nicht so eine rolle
+- `master`: Push: No One, Merge: Maintainers, Force-Push: no
+- `develop`: Push: Maintainers, Merge: Developers and Maintainers, Force-Push: yes
 
-find . -type f -exec chmod 644 {} + # nobody und meine Gruppe dürfen lesen, ich und eben der Webserver dürfen lesen und schreiben
+Zudem braucht es einen SSH Key welcher im Account hinterlegt ist. Der private Teil muss auch als CI Variable typ file `git_ssh_key` präsent sein.
+## Prerequisites
 
-find . -type d -exec chmod 755 {} + # nobody und meine Gruppe dürfen lesen und ins Verzeichnis wechseln, ich und der Webserver haben lese, schreibe und change rechte
+- Domain js-buchsi.ch registrieren
+- Domain auf Webhosting einrichten
+- Domain `js-buchsi.ch` zeigt auf `~/public_html/js-buchsi.ch/prod/`
+- Domain `preview.js-buchsi.ch` zeigt auf `~/public_html/js-buchsi.ch/preview/`
+- TLS Zertifikate von Let's Encrypt generieren
+- HTTP zu HTTPS Redirect einrichten (Option setzten)
+- FTP User anlegen (Berechtigungen auf `~/public_html/js-buchsi.ch`) und Quota von 5GB setzen
+- SSH Key generieren und als File variablen `ansible_private_key` und `ansible_public_key` unter CI variabels hinterlegen gehen  
 
-## Kirby speziell:
-cd site/accounts
-find . -type d -exec chmod 700 {} + # Dort liegen die accounts drin, da gibts nur für mich und php rechte
-find . -type f -exec chmod 600 {} + # Die files in den accounts müssen ebenfalls nur von mir und php verändert werden
+## CD
 
-cd site/config
-find . -type d -exec chmod 700 {} + # Config dirs, da gibts nur für mich und php rechte
-find . -type f -exec chmod 600 {} + # config files die nur von mir und php verändert werden
+Im Repo gibt es ein `.gitlab-ci.yml` file mit einer automatischen Deploy Pipeline drin. Sobald die Webspaces bereitstehen und im Inventory das Webhosting richtig angegeben ist, kann mit der Pipeline automatisch ausgerollt werden.
 
-# falls Lizenz vorhanden
-chmod 400 site/config/.license
-```
+Dabei gilt folgender Grundsatz:
 
-## Admin User anlegen
+- `develop` -> `https://preview.js-buchsi.ch`
+- `master` -> `https://js-buchsi.ch`
+
+Das Playbook `deploy.yml` klont das Repo auf ins entsprechende Webroot und setzt die Berechtigungen korrekt.
+
+### First run
+
+Wenn man das Playbook das allererste mal auf den frischen Workspace ausrollt müssen einige Dinge beachtet werden:
+
+- User: Das Verzeichnis mit den Usern ist im gitignore hinterlegt, beim ersten aufrufen der Seite musst du also einen Admin User anlegen  
+- Lizenz: Das Lizenzfile ist ebenfalls im gitignore hinterlegt, nachdem ein Admin User angelegt wurde muss die Lizenz entsprechend hinterlegt werden
+- Content: Der content Ordner ist im gitignore hinterlegt. Die deployte Website ist also ohne Content
+
+#### Admin User anlegen
+
 Wenn man die Seite nun zum ersten mal aufruft, wird man von einer Login Maske begrüsst welche einem auffordert einen Admin Account anzulegen. Dieser sowie alle anderen Accounts sind vom Git Repository ausgenommen und müssen jeweils neu hinzugefügt werden.
 
-## Lizenz aktivieren
+#### Lizenz aktivieren
+
 Die Lizenz ist vom Git Repository ausgeschlossen, sie muss manuell hinterlegt werden. Dies kann ebenfalls im Admin Panel gemacht werden.

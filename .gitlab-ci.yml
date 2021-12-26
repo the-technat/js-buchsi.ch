@@ -1,10 +1,61 @@
-# Ref: https://savjee.be/2019/04/gitlab-ci-deploy-to-ftp-with-lftp/
+image: docker.io/cytopia/ansible:latest-tools
 
-before_script:
-  - apt-get update -qy
-  - apt-get install -y lftp
+stages:
+- prepare
+- deploy
 
-build:
+variables:
+  ANSIBLE_CONFIG: ${CI_PROJECT_DIR}/deploy/ansible.cfg
+  ANSIBLE_ROOT: ${CI_PROJECT_DIR}/deploy/
+ 
+cache:
+  paths:
+
+validate_ansible:
+  stage: prepare
+  image: docker.io/cytopia/ansible-lint:5
   script:
-    # Sync to SFTP
-    - lftp -e "open technat.cyon.site; user $FTP_USERNAME $FTP_PASSWORD; mirror --reverse --verbose --delete ./ ./; bye"
+    - ansible-lint -v --show-relpath --parseable-severity --nocolor ${ANSIBLE_ROOT}/*.yml 
+
+deploy_preview:
+  stage: deploy
+  image: docker.io/cytopia/ansible:latest-tools
+  before_script:
+    - python -V # Print out python version for debugging
+
+    # Install dependencies
+    - pip install -r requirements.txt
+    - ansible-galaxy install -r requirements.yml
+      
+    # Setup SSH-Agent using private key from CI/CD variable
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - chmod 400 "$ansible_private_key"
+    - eval $(ssh-agent -s)
+    - ssh-add "$ansible_private_key" 
+  script:
+  - ansible-playbook deploy.yml -v -e GIT_SSH_KEY=$git_ssh_key --extra-vars "@vars_preview.yml"  
+  only:
+  - develop
+
+deploy_prod:
+  stage: deploy
+  image: docker.io/cytopia/ansible:latest-tools
+  before_script:
+    - python -V # Print out python version for debugging
+
+    # Install dependencies
+    - pip install -r requirements.txt
+    - ansible-galaxy install -r requirements.yml
+      
+    # Setup SSH-Agent using private key from CI/CD variable
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - chmod 400 "$ansible_private_key"
+    - eval $(ssh-agent -s)
+    - ssh-add "$ansible_private_key" 
+  script:
+  - ansible-playbook deploy.yml -v -e GIT_SSH_KEY=$git_ssh_key --extra-vars "@vars_prod.yml"
+  only:
+  - master
+  allow_failure: false
