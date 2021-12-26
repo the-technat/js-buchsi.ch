@@ -9,7 +9,7 @@ Folgende Protections müssen existieren:
 - `master`: Push: No One, Merge: Maintainers, Force-Push: no
 - `develop`: Push: Maintainers, Merge: Developers and Maintainers, Force-Push: yes
 
-Kreiere zudem ein "Deploy Token" welches Read access aufs Repository hat und hinterlege dies als masked, protected `git_clone_token_user` und `git_clone_token_pass` Variable im CI bereich
+Kreiere zudem ein "Deploy Token" welches Read access aufs Repository hat und hinterlege dies als masked, protected `git_clone_token_user` und `git_clone_token_pass` Variable im CI Bereich.
 
 ## Prerequisites
 
@@ -31,20 +31,22 @@ Dabei gilt folgender Grundsatz:
 - `develop` -> `https://preview.js-buchsi.ch`
 - `master` -> `https://js-buchsi.ch`
 
-Das Playbook `deploy.yml` klont das Repo auf ins entsprechende Webroot und setzt die Berechtigungen korrekt.
+Das Playbook `deploy.yml` klont das Repo ins entsprechende Webroot und setzt die Berechtigungen korrekt.
 
 ### First run
 
-Wenn man das Playbook das allererste mal auf den frischen Workspace ausrollt müssen einige Dinge beachtet werden:
+Wenn man das Playbook das allererste mal auf einen frischen Webspace ausrollt müssen einige Dinge beachtet werden.
 
-- User: Das Verzeichnis mit den Usern ist im gitignore hinterlegt, beim ersten aufrufen der Seite musst du also einen Admin User anlegen  
-- Lizenz: Das Lizenzfile ist ebenfalls im gitignore hinterlegt, nachdem ein Admin User angelegt wurde muss die Lizenz entsprechend hinterlegt werden
-- Content: Der content Ordner ist im gitignore hinterlegt. Die deployte Website ist also ohne Content
+Note: Im Admin Panel kann nur der Content verändert werden, deshalb funktioniert der GitOps Approach um die Website zu deployen.
 
-#### Admin User anlegen
+#### Content
 
-Wenn man die Seite nun zum ersten mal aufruft, wird man von einer Login Maske begrüsst welche einem auffordert einen Admin Account anzulegen. Dieser sowie alle anderen Accounts sind vom Git Repository ausgenommen und müssen jeweils neu hinzugefügt werden.
+Der content vom `content` Ordner ist nicht Teil des Repositories. Das bedeutet das die Webseite standardmässig ohne Inhalt daherkommt. Da der Inhalt auch nicht getracked wird, ist es wichtig diesen zu backupen. Das Playbook bietet die Option ein Backup via Cronjob auf dem selben Server einzurichten.
 
-#### Lizenz aktivieren
+#### User  
 
-Die Lizenz ist vom Git Repository ausgeschlossen, sie muss manuell hinterlegt werden. Dies kann ebenfalls im Admin Panel gemacht werden.
+Wenn man die Seite ohne Content zum ersten mal aufruft, wird man von einer Login Maske begrüsst welche einem auffordert einen Admin Account anzulegen. Dies weil User unter `/site/accounts` angelegt werden und dies nicht Teil des Repositories ist.
+
+#### Lizenz
+
+Die Lizenz ist vom Git Repository ausgeschlossen (`/site/config/.license`), sie muss manuell hinterlegt werden. Dies kann im Admin Panel gemacht werden nachdem man den Admin User angelegt hat.
