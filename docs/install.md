@@ -9,7 +9,8 @@ Folgende Protections müssen existieren:
 - `master`: Push: No One, Merge: Maintainers, Force-Push: no
 - `develop`: Push: Maintainers, Merge: Developers and Maintainers, Force-Push: yes
 
-Zudem braucht es einen SSH Key welcher im Account hinterlegt ist. Der private Teil muss auch als CI Variable typ file `git_ssh_key` präsent sein.
+Kreiere zudem ein "Deploy Token" welches Read access aufs Repository hat und hinterlege dies als masked, protected `git_clone_token_user` und `git_clone_token_pass` Variable im CI bereich
+
 ## Prerequisites
 
 - Domain js-buchsi.ch registrieren

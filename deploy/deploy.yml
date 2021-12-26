@@ -6,15 +6,14 @@
     PERM_OWNER: "technatc"
     PERM_GROUP: "technatc"
     SOURCE_BRANCH: "develop"
-    GIT_SSH_KEY: "~/.ssh/id_rsa"
+    GIT_USER: "sammy"
+    GIT_PASS: "superSecure"
   tasks:
   - name: Sync files to {{ SOURCE_BRANCH }} version
     git:
-      repo: git@gitlab.com:technat/js-buchsi-ch.git
+      repo: "https://{{ GIT_USER }}:{{ GIT_PASS }}@gitlab.com/technat/js-buchsi-ch.git" 
       dest: "{{ WEBROOT }}"
       single_branch: yes
-      accept_hostkey: yes
-      key_file: "{{ GIT_SSH_KEY }}" 
       update: yes
       version: "{{ SOURCE_BRANCH }}"
   - name: Permissions on webroot
