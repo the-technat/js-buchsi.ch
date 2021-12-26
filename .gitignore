@@ -21,6 +21,10 @@ Icon
 /.vscode
 /.idea
 
+# Content
+# ---------------
+/content/*
+
 # -------------SECURITY-------------
 # NEVER publish these files via Git!
 # -------------SECURITY-------------

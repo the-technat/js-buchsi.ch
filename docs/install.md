@@ -1,48 +1,52 @@
-## Installation
-- Domain js-buchsi.ch bei Cyon registrieren
-- Domain auf Webhosting einrichten, Domain `js-buchsi.ch` zeigt auf `~/public_html/js-buchsi.ch`
-- SSL Certs abholen mit dem One-Click
-- SSL-Redirect einrichten mit dem Häckchen
+# Installation
 
-## Webroot 
-Auf den Webserver verbinden und ins Webroot wechseln.
+## Repository
 
-Mit git das Repo herunterladen:
-```bash
-git clone https://git.technat.cloud/technat/js-buchsi.ch.git .
-```
-### File Permissions
-Source: https://www.smashingmagazine.com/2014/05/proper-wordpress-filesystem-permissions-ownerships/
-Coming soon: https://getkirby.com/docs/guide/security#file-permissions
-Cyon: https://www.cyon.ch/support/a/datei-berechtigungen-unter-linux
+Die js-buchsi webseite braucht ein privates Repository namens `js-buchsi.ch` mit `develop` als Default Branch.  
 
-Cyon braucht eine shared Server konfiguration wo der Webserver als  `technatc` läuft (PHP files auch).  Wir könnend die Permissions also folgendermassen setzten:
-```bash
-chown technatc:nobody ./js-buchsi.ch # bereits durch cyon gesetzt, kann nicht verändert werden
-chmod 750 js-buchsi.ch # bereits durch cyon gesetzt, kann nicht verändert werden
+Folgende Protections müssen existieren:
 
-cd js-buchsi.ch
-chown technatc:technatc -R ./ # alles gehört mir und da der Webserver als ich läuft wird als Gruppe auch ich gesetzt, spielt nicht so eine rolle
+- `master`: Push: No One, Merge: Maintainers, Force-Push: no
+- `develop`: Push: Maintainers, Merge: Developers and Maintainers, Force-Push: yes
 
-find . -type f -exec chmod 644 {} + # nobody und meine Gruppe dürfen lesen, ich und eben der Webserver dürfen lesen und schreiben
+Kreiere zudem ein "Deploy Token" welches Read access aufs Repository hat und hinterlege dies als masked, protected `git_clone_token_user` und `git_clone_token_pass` Variable im CI Bereich.
 
-find . -type d -exec chmod 755 {} + # nobody und meine Gruppe dürfen lesen und ins Verzeichnis wechseln, ich und der Webserver haben lese, schreibe und change rechte
+## Prerequisites
 
-## Kirby speziell:
-cd site/accounts
-find . -type d -exec chmod 700 {} + # Dort liegen die accounts drin, da gibts nur für mich und php rechte
-find . -type f -exec chmod 600 {} + # Die files in den accounts müssen ebenfalls nur von mir und php verändert werden
+- Domain js-buchsi.ch registrieren
+- Domain auf Webhosting einrichten
+- Domain `js-buchsi.ch` zeigt auf `~/public_html/js-buchsi.ch/prod/`
+- Domain `preview.js-buchsi.ch` zeigt auf `~/public_html/js-buchsi.ch/preview/`
+- TLS Zertifikate von Let's Encrypt generieren
+- HTTP zu HTTPS Redirect einrichten (Option setzten)
+- FTP User anlegen (Berechtigungen auf `~/public_html/js-buchsi.ch`) und Quota von 5GB setzen
+- SSH Key generieren und als File variablen `ansible_private_key` und `ansible_public_key` unter CI variabels hinterlegen gehen  
 
-cd site/config
-find . -type d -exec chmod 700 {} + # Config dirs, da gibts nur für mich und php rechte
-find . -type f -exec chmod 600 {} + # config files die nur von mir und php verändert werden
+## CD
 
-# falls Lizenz vorhanden
-chmod 400 site/config/.license
-```
+Im Repo gibt es ein `.gitlab-ci.yml` file mit einer automatischen Deploy Pipeline drin. Sobald die Webspaces bereitstehen und im Inventory das Webhosting richtig angegeben ist, kann mit der Pipeline automatisch ausgerollt werden.
 
-## Admin User anlegen
-Wenn man die Seite nun zum ersten mal aufruft, wird man von einer Login Maske begrüsst welche einem auffordert einen Admin Account anzulegen. Dieser sowie alle anderen Accounts sind vom Git Repository ausgenommen und müssen jeweils neu hinzugefügt werden.
+Dabei gilt folgender Grundsatz:
 
-## Lizenz aktivieren
-Die Lizenz ist vom Git Repository ausgeschlossen, sie muss manuell hinterlegt werden. Dies kann ebenfalls im Admin Panel gemacht werden.
+- `develop` -> `https://preview.js-buchsi.ch`
+- `master` -> `https://js-buchsi.ch`
+
+Das Playbook `deploy.yml` klont das Repo ins entsprechende Webroot und setzt die Berechtigungen korrekt.
+
+### First run
+
+Wenn man das Playbook das allererste mal auf einen frischen Webspace ausrollt müssen einige Dinge beachtet werden.
+
+Note: Im Admin Panel kann nur der Content verändert werden, deshalb funktioniert der GitOps Approach um die Website zu deployen.
+
+#### Content
+
+Der content vom `content` Ordner ist nicht Teil des Repositories. Das bedeutet das die Webseite standardmässig ohne Inhalt daherkommt. Da der Inhalt auch nicht getracked wird, ist es wichtig diesen zu backupen. Das Playbook bietet die Option ein Backup via Cronjob auf dem selben Server einzurichten.
+
+#### User  
+
+Wenn man die Seite ohne Content zum ersten mal aufruft, wird man von einer Login Maske begrüsst welche einem auffordert einen Admin Account anzulegen. Dies weil User unter `/site/accounts` angelegt werden und dies nicht Teil des Repositories ist.
+
+#### Lizenz
+
+Die Lizenz ist vom Git Repository ausgeschlossen (`/site/config/.license`), sie muss manuell hinterlegt werden. Dies kann im Admin Panel gemacht werden nachdem man den Admin User angelegt hat.
