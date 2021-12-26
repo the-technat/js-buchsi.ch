@@ -11,11 +11,11 @@ variables:
 cache:
   paths:
 
-validate_ansible:
+validate:
   stage: prepare
   image: docker.io/cytopia/ansible-lint:5
   script:
-    - ansible-lint -v --show-relpath --parseable-severity --nocolor ${ANSIBLE_ROOT}/*.yml 
+    - ansible-lint -v --show-relpath --parseable-severity --nocolor ${ANSIBLE_ROOT}/deploy.yml 
 
 deploy_preview:
   stage: deploy
