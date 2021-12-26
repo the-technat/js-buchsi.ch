@@ -24,8 +24,8 @@ deploy_preview:
     - python -V # Print out python version for debugging
 
     # Install dependencies
-    - pip install -r requirements.txt
-    - ansible-galaxy install -r requirements.yml
+    # - pip install -r requirements.txt
+    # - ansible-galaxy install -r requirements.yml
       
     # Setup SSH-Agent using private key from CI/CD variable
     - mkdir -p ~/.ssh
@@ -45,8 +45,8 @@ deploy_prod:
     - python -V # Print out python version for debugging
 
     # Install dependencies
-    - pip install -r requirements.txt
-    - ansible-galaxy install -r requirements.yml
+    # - pip install -r requirements.txt
+    # - ansible-galaxy install -r requirements.yml
       
     # Setup SSH-Agent using private key from CI/CD variable
     - mkdir -p ~/.ssh
