@@ -34,7 +34,7 @@ deploy_preview:
     - eval $(ssh-agent -s)
     - ssh-add "$ansible_private_key" 
   script:
-  - ansible-playbook ${ANSIBLE_ROOT}/deploy.yml -v -e GIT_SSH_KEY=$git_ssh_key --extra-vars "@${ANSIBLE_ROOT}/vars_preview.yml"  
+  - ansible-playbook ${ANSIBLE_ROOT}/deploy.yml -v -e GIT_SSH_KEY="$git_ssh_key" --extra-vars "@${ANSIBLE_ROOT}/vars_preview.yml"  
   only:
   - develop
 
@@ -55,7 +55,7 @@ deploy_prod:
     - eval $(ssh-agent -s)
     - ssh-add "$ansible_private_key" 
   script:
-  - ansible-playbook ${ANSIBLE_ROOT}/deploy.yml -v -e GIT_SSH_KEY=$git_ssh_key --extra-vars "@${ANSIBLE_ROOT}/vars_prod.yml"
+  - ansible-playbook ${ANSIBLE_ROOT}/deploy.yml -v -e GIT_SSH_KEY="$git_ssh_key" --extra-vars "@${ANSIBLE_ROOT}/vars_prod.yml"
   only:
   - master
   allow_failure: false
