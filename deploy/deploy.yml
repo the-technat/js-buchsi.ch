@@ -2,7 +2,7 @@
 - name: JS-Buchsi Website Deployment 
   hosts: all
   vars: # all variables used to deploy are defined here
-    WEBROOT: "/home/technatc/public_html/js-buchsi.ch/preview/"
+    WEBROOT: "/home/technatc/public_html/js-buchsi.ch/preview"
     PERM_OWNER: "technatc"
     PERM_GROUP: "technatc"
     SOURCE_BRANCH: "develop"
