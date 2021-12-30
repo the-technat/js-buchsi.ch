@@ -24,6 +24,8 @@ Icon
 # Content
 # ---------------
 /content/*
+!/content/home/
+!/content/impressum
 
 # -------------SECURITY-------------
 # NEVER publish these files via Git!

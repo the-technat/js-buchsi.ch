@@ -1,0 +1,72 @@
+title: Impressum
+icon: template
+
+options:
+  delete: false
+
+tabs:
+  header:
+    label: "Header"
+    icon: file-image
+    columns:
+      image:
+        width: 1/1
+        sections:
+          headerImage:
+            extends: sections/headerimage
+          site-information:
+            type: fields
+            fields:
+              owner:
+                label: Inhaber
+                type: text
+                help: Formeller Name unserer Jungschar
+                width: 1/2
+              region:
+                label: BESJ Region
+                type: text
+                help: Die BESJ Region deiner Jungschar
+                width: 1/2
+              street:
+                label: Strasse
+                type: text
+                width: 1/3
+              plz:
+                label: PLZ
+                type: text
+                width: 1/3
+                pattern: "[0-9]{4,5}"
+              ort:
+                label: Ort
+                type: text
+                width: 1/3
+              kontaktperson:
+                label: Kontakt - Name
+                type: text
+                help: Wer ist die zuständige Kontaktperson?
+              mail:
+                label: Kontakt - Mail  
+                type: text
+                help: Eine gültige Mail Adresse der zuständigen Kontaktperson
+                placeholder: kontakt@jungschar.ch    
+                width: 1/2
+              phone:
+                label: Kontakt - Telefon
+                type: text
+                placeholder: +41 77 516 41 55
+                help: Eine gültige Telefonnummer der zuständigen Kontaktperson.
+                width: 1/2
+              seealso:
+                label: Weiterführende Informationen
+                type: list
+                help: Liste mit Links zu weiterführenden Informationen, z.B zum BESJ Verband
+              accountability:
+                label: Haftungsausschluss
+                type: textarea
+                help: In Markdown formatiereter Text über den Haftungsausschluss
+                placeholder: "# Haftungsausschluss \n..."
+              datenschutz:
+                label: Datenschutz
+                type: textarea
+                help: In Markdown formatierter Text über den Datenschutz
+                placeholder: "# Datenschutz \n..."

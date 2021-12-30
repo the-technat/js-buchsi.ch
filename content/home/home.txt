@@ -1,0 +1,59 @@
+Title: Home
+
+----
+
+Editor:
+
+[
+    {
+        "content": {
+            "level": "h2",
+            "text": "Willkommen auf der Website der BESJ Jungschar Herzogenbuchsee"
+        },
+        "id": "3282bc2d-d5e7-4c92-afb8-291092c3a15c",
+        "isHidden": false,
+        "type": "heading"
+    },
+    {
+        "content": {
+            "text": "<p>Introtext über die Jungschar.............</p><p>Lorem Ipsum Sgubidum Galandium</p>"
+        },
+        "id": "b15492e4-35d5-4001-99c3-12718b5b948c",
+        "isHidden": false,
+        "type": "text"
+    },
+    {
+        "content": {
+            "location": "kirby",
+            "image": [
+                "20-02-17-13-09-34-efcb.jpg"
+            ],
+            "src": "",
+            "alt": "Schönes Bild",
+            "caption": "Ein Bild von der Jungschar",
+            "link": "https://found-me.io",
+            "ratio": "3/2",
+            "crop": "true"
+        },
+        "id": "7226d95b-bdbb-4986-8cb5-851659bdb5c2",
+        "isHidden": false,
+        "type": "image"
+    },
+    {
+        "content": {
+            "url": "https://www.youtube.com/watch?v=dSJZ7MtKe1w",
+            "caption": ""
+        },
+        "id": "955bf035-c911-452a-8dce-6ae3f34606ad",
+        "isHidden": false,
+        "type": "video"
+    },
+    {
+        "content": {
+            "text": "<ul><li>We have to do:</li><li>Blueprints</li><li>Template</li><li>Apples</li><li>Bananes</li><li>Sleeping</li><li>Eating</li><li>Ping Pong</li></ul>"
+        },
+        "id": "9a320f25-053e-446a-8a03-5f2217eb8600",
+        "isHidden": false,
+        "type": "list"
+    }
+]
