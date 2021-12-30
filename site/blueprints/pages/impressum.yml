@@ -3,6 +3,10 @@ icon: template
 
 options:
   delete: false
+  changeStatus: false
+  changeTemplate: false
+  changeSlug: false
+  changeTitle: false
 
 tabs:
   header:
