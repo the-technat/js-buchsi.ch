@@ -3,4 +3,4 @@
 	url = https://github.com/getkirby/kirby.git
 [submodule "site/plugins/locator"]
 	path = site/plugins/locator
-	url = git@github.com:sylvainjule/kirby-locator.git
+	url = https://github.com/sylvainjule/kirby-locator.git
