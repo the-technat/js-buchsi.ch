@@ -3,6 +3,8 @@
   <title><?= $site->title()->html() ?></title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/1233a33470.js" crossorigin="anonymous"></script>
   <!-- CSS -->
   <?= css('assets/css/index.css') ?>
   <?= css('@auto') ?>
