@@ -17,6 +17,10 @@ validate:
   script:
     - cd ${ANSIBLE_ROOT}
     - ansible-lint -v --show-relpath --parseable-severity --nocolor deploy.yml 
+  rules:
+  - changes:
+    - ${ANSIBLE_ROOT} 
+
 
 deploy_preview:
   stage: deploy
