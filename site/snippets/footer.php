@@ -8,6 +8,9 @@
           <?= $site->owner() ?><br>
         </p>
       </div>
+      <div class="links">
+        <a href="<?php $site->url() ?>/impressum">Impressum</a>
+      </div>
     </div>
   </footer>
 </body>

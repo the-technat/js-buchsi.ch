@@ -36,11 +36,11 @@ tabs:
                 type: text
                 width: 1/3
                 pattern: "[0-9]{4,5}"
-              ort:
+              location:
                 label: Ort
                 type: text
                 width: 1/3
-              kontaktperson:
+              contaktperson:
                 label: Kontakt - Name
                 type: text
                 help: Wer ist die zuständige Kontaktperson?
@@ -56,16 +56,12 @@ tabs:
                 placeholder: +41 77 516 41 55
                 help: Eine gültige Telefonnummer der zuständigen Kontaktperson.
                 width: 1/2
-              seealso:
-                label: Weiterführende Informationen
-                type: list
-                help: Liste mit Links zu weiterführenden Informationen, z.B zum BESJ Verband
               accountability:
                 label: Haftungsausschluss
                 type: textarea
                 help: In Markdown formatiereter Text über den Haftungsausschluss
                 placeholder: "# Haftungsausschluss \n..."
-              datenschutz:
+              privacy:
                 label: Datenschutz
                 type: textarea
                 help: In Markdown formatierter Text über den Datenschutz

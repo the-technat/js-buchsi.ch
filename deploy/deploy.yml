@@ -17,6 +17,7 @@
       dest: "{{ WEBROOT }}"
       single_branch: yes
       update: yes
+      recursive: yes
       version: "{{ SOURCE_BRANCH }}"
   - name: Permissions on webroot
     file:

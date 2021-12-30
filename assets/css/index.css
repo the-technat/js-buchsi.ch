@@ -79,6 +79,11 @@ h1, h2, h3, h4, h5, h6 {
   font-family: conformity, rubik, arial, sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: #244538; 
+}
+
 .container {
   max-width: 1170px;
   margin: 0 auto;
@@ -223,6 +228,19 @@ footer {
   padding: 3rem 0;
   background-color: #244538;
   color: whitesmoke;
+}
+
+footer .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+footer .links {
+ text-align: right;
+}
+
+footer a {
+  color: #ffffff;
 }
 
 /*-----------------------------------------------------------------------------------*/

@@ -18,11 +18,11 @@ Plz: 3360
 
 ----
 
-Ort: Herzogenbuchsee
+Location: Herzogenbuchsee
 
 ----
 
-Kontaktperson: Nathanael Liechti
+Contaktperson: Nathanael Liechti
 
 ----
 
@@ -31,10 +31,6 @@ Mail: team@js-buchsi.ch
 ----
 
 Phone: +41 76 416 81 33
-
-----
-
-Seealso: <ul><li><a href="https://besj.ch/ueber-uns/?navid=716677716677" rel="noopener noreferrer">https://besj.ch/ueber-uns/?navid=716677716677</a></li></ul>
 
 ----
 
@@ -69,8 +65,7 @@ Anwendbar ist ausschliesslich Schweizer Recht.
 
 ----
 
-Datenschutz: 
+Privacy:
 
-----
-
-Intro: 
+# Datenschutz
+...
