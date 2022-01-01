@@ -1,7 +1,7 @@
 # JS-Buchsi
 
-[![pipeline status develop](https://gitlab.com/technat/js-buchsi-ch/badges/develop/pipeline.svg)](https://gitlab.com/technat/js-buchsi-ch/-/commits/develop) 
-[![pipeline status master](https://gitlab.com/technat/js-buchsi-ch/badges/master/pipeline.svg)](https://gitlab.com/technat/js-buchsi-ch/-/commits/master) 
+[![pipeline status develop](https://code.immerda.ch/technat/js-buchsi-ch/badges/develop/pipeline.svg)](https://code.immerda.ch/technat/js-buchsi-ch/-/commits/develop)
+[![pipeline status master](https://code.immerda.ch/technat/js-buchsi-ch/badges/master/pipeline.svg)](https://code.immerda.ch/technat/js-buchsi-ch/-/commits/master)
 
 Website of JS-Buchsi using [Kirby CMS](https://getkirby.com/)
 

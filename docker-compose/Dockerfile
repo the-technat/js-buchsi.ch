@@ -29,7 +29,7 @@ RUN apt-get update && apt-get install -y \
   apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Copy virtual host configuration from current path over existing 000-default.conf
-COPY default.conf /etc/apache2/sites-available/000-default.conf
+COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 
 # Copy custom php.ini config into container
 COPY php.ini /etc/php/8.0/apache2/php.ini
