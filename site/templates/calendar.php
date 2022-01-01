@@ -39,10 +39,10 @@
         <div class="event-contentmore">
           <div class="event-infos"><?= $event->infos() ?></div>
           <div class="event-location">
-            <?php $location = $event->location()->toLocation() ?>
-            <p>Strasse: <?= $location->address() ?> <?= $location->number() ?></p>
-            <p>PLZ: <?= $location->postcode() ?></p>
-            <p>Ort: <?= $location->city() ?></p>
+            <?php $lat = $event->location()->toLocation()->lat() ?>
+            <?php $lon = $event->location()->toLocation()->lon() ?>
+            <i class="fas fa-map-pin"></i> <a href="https://www.openstreetmap.org/?mlat=<?= $lat ?>&amp;mlon=<?= $lon ?>#map=19/<?= $lat ?>/<?= $lon ?>">Treffpunkt</a>
+            <br>
           </div>
         </div>
         <?php endif ?>
