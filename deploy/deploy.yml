@@ -1,5 +1,5 @@
 ---
-- name: JS-Buchsi Website Deployment 
+- name: JS-Buchsi Website Deployment
   hosts: all
   vars: # all variables used to deploy are defined here
     WEBROOT: "/home/technatc/public_html/js-buchsi.ch/preview"
@@ -13,7 +13,7 @@
   tasks:
   - name: Sync files to {{ SOURCE_BRANCH }} version
     git:
-      repo: "https://{{ GIT_USER }}:{{ GIT_PASS }}@gitlab.com/technat/js-buchsi-ch.git" 
+      repo: "https://{{ GIT_USER }}:{{ GIT_PASS }}@code.immerda.ch/technat/js-buchsi.ch.git"
       dest: "{{ WEBROOT }}"
       single_branch: yes
       update: yes
@@ -22,7 +22,7 @@
   - name: Permissions on webroot
     file:
       dest: "{{ WEBROOT }}"
-      owner: "{{ PERM_OWNER }}" 
+      owner: "{{ PERM_OWNER }}"
       group: "{{ PERM_GROUP }}"
       mode: u=rwX,g=rX,o=rX
       recurse: yes
