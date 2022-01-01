@@ -148,6 +148,19 @@ header a {
           align-items: center;
 }
 
+.header-image {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.header-image-centered-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 
 /*-----------------------------------------------------------------------------------*/
 /*  Navigation
