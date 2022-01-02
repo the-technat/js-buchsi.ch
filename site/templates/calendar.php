@@ -1,7 +1,6 @@
 <?php snippet('header') ?>
 
 <section class="intro">
-  <h1><?= $page->title()->html() ?></h1>
   <?= $page->intro()->kirbytext() ?> 
 </section>
 
