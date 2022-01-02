@@ -33,7 +33,7 @@ columns:
         help: "Diese Seite von der Navigation ausblenden?"
         type: toggle
         disabled: true
-        default: "ausblenden"
+        default: true
         text: 
           - "einblenden"
           - "ausblenden"
