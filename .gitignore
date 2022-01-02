@@ -24,7 +24,6 @@ Icon
 # Content
 # ---------------
 /content/*
-!/content/home/
 !/content/impressum
 !/content/default-header-image.jpg
 !/content/default-header-image.jpg.txt
