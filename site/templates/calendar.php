@@ -37,12 +37,14 @@
         <?php if ($event->special() == "true") : ?>
         <div class="event-contentmore">
           <div class="event-infos"><?= $event->infos() ?></div>
-          <div class="event-location">
-            <?php $lat = $event->location()->toLocation()->lat() ?>
-            <?php $lon = $event->location()->toLocation()->lon() ?>
-            <i class="fas fa-map-pin"></i> <a href="https://www.openstreetmap.org/?mlat=<?= $lat ?>&amp;mlon=<?= $lon ?>#map=19/<?= $lat ?>/<?= $lon ?>">Treffpunkt</a>
-            <br>
-          </div>
+          <?php if ($event->enterlocation()->toBool() === true ): ?>
+            <div class="event-location">
+              <?php $lat = $event->location()->toLocation()->lat() ?>
+              <?php $lon = $event->location()->toLocation()->lon() ?>
+              <i class="fas fa-map-pin"></i> <a href="https://www.openstreetmap.org/?mlat=<?= $lat ?>&amp;mlon=<?= $lon ?>#map=19/<?= $lat ?>/<?= $lon ?>">Treffpunkt</a>
+              <br>
+            </div>
+          <?php endif ?>
         </div>
         <?php endif ?>
 
