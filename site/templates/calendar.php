@@ -7,7 +7,7 @@
 <?php if (!empty($page->files()->filterBy('template', 'flyer')->first())) : ?>
 <section class="download">
   <a href="<?= $page->files()->filterBy('template', 'flyer')->first()->mediaUrl() ?>">
-    <button class="filebutton"><i class="fas fa-file-download"></i> Flyer</button>
+    <button class="button"><i class="fas fa-file-download"></i> Flyer</button>
   </a>
 </section>
 <?php endif ?>
@@ -37,6 +37,13 @@
       <div class="event-body <?= $toggleclass ?>">
         <div class="event-infos">
           <?= $event->infos()->kirbytext() ?>
+          <?php if($event->signallowed()->toBool() === true ): ?>
+          <a href="<?= $event->signform() ?>">
+            <?php if ($event->signenddate()->toDate() > time()): ?>
+            <button class="button"><i class="fas fa-external-link-alt"></i> Anmelden</button>
+            <?php endif ?>
+          </a>
+          <?php endif ?>
         </div>
         <?php if ($event->enterlocation()->toBool() === true ): ?>
         <div class="event-location">
