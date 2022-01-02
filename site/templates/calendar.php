@@ -17,38 +17,40 @@
 <section class="events">
   <ul>
     <?php foreach ($events as $event): ?>
-      <?php if ($event->special() == "true"): ?>
-        <li class="event special">
-        <?php $toggleclass = 'moreinfo'; ?>
-      <?php else: ?>
-        <li class="event">
-        <?php $toggleclass = ''; ?>
-      <?php endif ?>
+    <?php
+      if ($event->special() == "true" || $event->blueprint()->title() == "Lager") {
+        $toggleclass = 'special';
+      } else {
+        $toggleclass = '';
+      } 
+    ?>
+    <li class="event <?= $toggleclass ?>">
+      <div class="event-header <?=$toggleclass?>">
+        <?php if ($event->blueprint()->title() == "JS-Nami") : ?>
+          <time><?= $event->date()->toDate('d.m.Y') ?> <?= $event->starttime() ?> - <?= $event->endtime() ?></time>
+        <?php else: ?>
+          <time><?= $event->startdate()->toDate('d.m.Y') ?> - <?= $event->enddate()->toDate('d.m.Y') ?></time>
+        <?php endif ?>
+        <h3><?= $event->thema()->html() ?></h3>
+      </div>
 
-        <div class="event-header <?=$toggleclass?>">
-          <?php if ($event->blueprint()->title() == "JS-Nami") : ?>
-            <time><?= $event->date()->toDate('d.m.Y') ?> <?= $event->starttime() ?> - <?= $event->endtime() ?></time>
-          <?php else: ?>
-            <time><?= $event->startdate()->toDate('d.m.Y') ?> - <?= $event->enddate()->toDate('d.m.Y') ?></time>
-          <?php endif ?>
-          <h3><?= $event->thema()->html() ?></h3>
+      <div class="event-body <?= $toggleclass ?>">
+        <div class="event-infos">
+          <?= $event->infos()->kirbytext() ?>
         </div>
-
-        <?php if ($event->special() == "true") : ?>
-        <div class="event-contentmore">
-          <div class="event-infos"><?= $event->infos() ?></div>
-          <?php if ($event->enterlocation()->toBool() === true ): ?>
-            <div class="event-location">
-              <?php $lat = $event->location()->toLocation()->lat() ?>
-              <?php $lon = $event->location()->toLocation()->lon() ?>
-              <i class="fas fa-map-pin"></i> <a href="https://www.openstreetmap.org/?mlat=<?= $lat ?>&amp;mlon=<?= $lon ?>#map=19/<?= $lat ?>/<?= $lon ?>">Treffpunkt</a>
-              <br>
-            </div>
-          <?php endif ?>
+        <?php if ($event->enterlocation()->toBool() === true ): ?>
+        <div class="event-location">
+          <?php 
+            if($event->blueprint()->title() == "JS-Nami") {
+              $linktext = "Treffpunkt";
+            } else {
+              $linktext = "Lagerplatz";
+            } 
+          ?>
+          <i class="fas fa-map-pin"></i> <a href="https://www.openstreetmap.org/?mlat=<?= $event->location()->toLocation()->lat() ?>&amp;mlon=<?= $event->location()->toLocation()->lon() ?>#map=19/<?= $event->location()->toLocation()->lat() ?>/<?= $event->location()->toLocation()->lon() ?>"><?= $linktext ?></a>
         </div>
         <?php endif ?>
-
-      </li>
+    </li>
     <?php endforeach ?>
   </ul>
 </section>

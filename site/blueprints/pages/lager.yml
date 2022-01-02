@@ -10,7 +10,7 @@ columns:
         label: Thema
         type: text
         help: "Thema des Lagers"
-      leadtext:
+      infos:
         type: textarea
         label: Leadtext
         help: "Einleitungstext wie auf Flyer"
@@ -33,11 +33,20 @@ columns:
         width: 1/2
         display: DD.MM.YYYY
         required: true
+      enterlocation:
+        label: "Lagerplatz anzeigen"
+        help: "Du kannst optional den Standort des Lagerplatzes anzeigen lassen."
+        type: toggle
+        default: "verstecken"
+        text:
+          - "verstecken"
+          - "anzeigen"
       location:
         label: Lagerort
         type: locator
         draggable: true
-        required: true
+        when:
+          enterlocation: on
         help: "Gibb eine Adresse ein um den Pin zu bekommen. Du kannst den Pin später immer noch verschieben."
         liststyle: columns
         display:
