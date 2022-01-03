@@ -2,14 +2,14 @@
 - name: JS-Buchsi Website Deployment
   hosts: all
   vars: # all variables used to deploy are defined here
-    WEBROOT: "/home/technatc/public_html/js-buchsi.ch/preview"
-    PERM_OWNER: "technatc"
-    PERM_GROUP: "technatc"
+    WEBROOT: "/var/www/js-buchsi.ch/preview"
+    PERM_OWNER: "technat"
+    PERM_GROUP: "technat"
     SOURCE_BRANCH: "develop"
     GIT_USER: "sammy"
     GIT_PASS: "superSecure"
     ENABLE_BACKUP: “true"
-    BACKUP_DEST: "/home/technatc/webroot-backups/preview.js-buchsi.ch"
+    BACKUP_DEST: "/home/technat/webroot-backups/preview.js-buchsi.ch"
   tasks:
   - name: Sync files to {{ SOURCE_BRANCH }} version
     git:
