@@ -19,13 +19,6 @@
       update: yes
       recursive: yes
       version: "{{ SOURCE_BRANCH }}"
-  - name: Permissions on webroot
-    file:
-      dest: "{{ WEBROOT }}"
-      owner: "{{ PERM_OWNER }}"
-      group: "{{ PERM_GROUP }}"
-      mode: u=rwX,g=rX,o=rX
-      recurse: yes
   - name: Cronjob for content backup
     cron:
       name: js-buchsi content backup
