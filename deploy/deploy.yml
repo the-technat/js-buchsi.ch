@@ -8,7 +8,7 @@
     SOURCE_BRANCH: "develop"
     GIT_USER: "sammy"
     GIT_PASS: "superSecure"
-    ENABLE_BACKUP: “true"
+    ENABLE_BACKUP: "true"
     BACKUP_DEST: "/home/technat/webroot-backups/preview.js-buchsi.ch"
   tasks:
   - name: Sync files to {{ SOURCE_BRANCH }} version
