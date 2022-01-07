@@ -2,14 +2,10 @@
 - name: JS-Buchsi Website Deployment
   hosts: all
   vars: # all variables used to deploy are defined here
-    WEBROOT: "/var/www/js-buchsi.ch/preview"
-    PERM_OWNER: "technat"
-    PERM_GROUP: "technat"
+    WEBROOT: "/home/clients/625287d9edbd32bee10d3b5946921928/sites/js-buchsi.ch/preview"
     SOURCE_BRANCH: "develop"
     GIT_USER: "sammy"
     GIT_PASS: "superSecure"
-    ENABLE_BACKUP: "true"
-    BACKUP_DEST: "/home/technat/webroot-backups/preview.js-buchsi.ch"
   tasks:
   - name: Sync files to {{ SOURCE_BRANCH }} version
     git:
@@ -19,11 +15,3 @@
       update: yes
       recursive: yes
       version: "{{ SOURCE_BRANCH }}"
-  - name: Cronjob for content backup
-    cron:
-      name: js-buchsi content backup
-      minute: '0'
-      hour: '*/1'
-      user: "{{ PERM_OWNER }}"
-      job: 'rsync -av {{ WEBROOT }}/ {{ BACKUP_DEST }} > /dev/null 2>&1'
-    when: ENABLE_BACKUP == "true"
