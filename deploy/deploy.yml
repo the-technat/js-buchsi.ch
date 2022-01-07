@@ -1,35 +1,17 @@
 ---
-- name: JS-Buchsi Website Deployment 
+- name: JS-Buchsi Website Deployment
   hosts: all
   vars: # all variables used to deploy are defined here
-    WEBROOT: "/home/technatc/public_html/js-buchsi.ch/preview"
-    PERM_OWNER: "technatc"
-    PERM_GROUP: "technatc"
+    WEBROOT: "/home/clients/625287d9edbd32bee10d3b5946921928/sites/js-buchsi.ch/preview"
     SOURCE_BRANCH: "develop"
     GIT_USER: "sammy"
     GIT_PASS: "superSecure"
-    ENABLE_BACKUP: “true"
-    BACKUP_DEST: "/home/technatc/webroot-backups/preview.js-buchsi.ch"
   tasks:
   - name: Sync files to {{ SOURCE_BRANCH }} version
     git:
-      repo: "https://{{ GIT_USER }}:{{ GIT_PASS }}@gitlab.com/technat/js-buchsi-ch.git" 
+      repo: "https://{{ GIT_USER }}:{{ GIT_PASS }}@code.immerda.ch/technat/js-buchsi.ch.git"
       dest: "{{ WEBROOT }}"
       single_branch: yes
       update: yes
+      recursive: yes
       version: "{{ SOURCE_BRANCH }}"
-  - name: Permissions on webroot
-    file:
-      dest: "{{ WEBROOT }}"
-      owner: "{{ PERM_OWNER }}" 
-      group: "{{ PERM_GROUP }}"
-      mode: u=rwX,g=rX,o=rX
-      recurse: yes
-  - name: Cronjob for content backup
-    cron:
-      name: js-buchsi content backup
-      minute: '0'
-      hour: '*/1'
-      user: "{{ PERM_OWNER }}"
-      job: 'rsync -av {{ WEBROOT }}/ {{ BACKUP_DEST }} > /dev/null 2>&1'
-    when: ENABLE_BACKUP == "true"

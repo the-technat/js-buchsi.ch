@@ -8,5 +8,5 @@ template: header-image
 size: huge
 info: "{{ file.dimensions }}"
 image:
-	ratio: 21/9
-	cover: true
+  ratio: 21/9
+  cover: true

@@ -1,5 +1,12 @@
 # Concepts and Logic
 
+This page lists some concepts the website follows and some logics are explained.
+
+
+## Languages
+
+We are from switzerland and our target group all speaks german, so everything that will be visible in the panel or the website itself should be written in german. Everything that is not visible there like this doc or code itself shall be written in english.
+
 ## Plugins
 
 ### Locator

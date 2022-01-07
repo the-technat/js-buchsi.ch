@@ -1,6 +1,3 @@
 ---
-WEBROOT: "/home/technatc/public_html/js-buchsi.ch/prod/"
-PERM_OWNER: "technatc"
-PERM_GROUP: "technatc"
+WEBROOT: "/home/clients/625287d9edbd32bee10d3b5946921928/sites/js-buchsi.ch/prod"
 SOURCE_BRANCH: "master"
-BACKUP_DEST: "/home/technatc/webroot-backups/js-buchsi.ch"

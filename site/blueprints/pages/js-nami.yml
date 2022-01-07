@@ -33,7 +33,7 @@ columns:
         help: "Diese Seite von der Navigation ausblenden?"
         type: toggle
         disabled: true
-        default: "ausblenden"
+        default: true
         text: 
           - "einblenden"
           - "ausblenden"
@@ -62,11 +62,19 @@ columns:
         default: "17:00"
         required: true
         notation: 24
+      enterlocation:
+        label: "Anderer Treffpunkt"
+        help: "Du kannst einen anderen Treffpunkt angeben falls dieser vom normalen Treffpunkt abweicht."
+        type: toggle
+        default: "normal"
+        text:
+          - "normal"
+          - "anders"
       location:
         label: Treffpunkt
         type: locator
         when:
-          special: on
+          enterlocation: on
         draggable: true
         help: "Gibb eine Adresse ein um den Pin zu bekommen. Du kannst den Pin später immer noch verschieben. Fürs EGW gibts du \"Heidenmoosstrasse 25 3360 Herzogenbuchsee\" ein."
         liststyle: columns

@@ -24,6 +24,9 @@ Icon
 # Content
 # ---------------
 /content/*
+!/content/impressum
+!/content/default-header-image.jpg
+!/content/default-header-image.jpg.txt
 
 # -------------SECURITY-------------
 # NEVER publish these files via Git!
