@@ -1,4 +1,3 @@
----
 - name: JS-Buchsi Website Deployment
   hosts: all
   vars: # all variables used to deploy are defined here
@@ -8,20 +7,20 @@
     GIT_USER: "sammy"
     GIT_PASS: "superSecure"
   tasks:
-  - name: Create backup dir
-    ansible.builtin.file:
-      path: "{{ BACKUPDIR }}"
-      state: directory
-  - name: Backup current Webroot to Backup dir
-    ansible.builtin.copy: 
-      src: "{{ WEBROOT }}"
-      dest: "{{ BACKUPDIR }}"
-      backup: yes
-  - name: Sync files to {{ SOURCE_BRANCH }} version
-    git:
-      repo: "https://{{ GIT_USER }}:{{ GIT_PASS }}@code.immerda.ch/technat/js-buchsi.ch.git"
-      dest: "{{ WEBROOT }}"
-      single_branch: yes
-      update: yes
-      recursive: yes
-      version: "{{ SOURCE_BRANCH }}"
+    - name: Create backup dir
+      ansible.builtin.file:
+        path: "{{ BACKUPDIR }}"
+        state: directory
+    - name: Backup current Webroot to Backup dir
+      ansible.builtin.copy:
+        src: "{{ WEBROOT }}"
+        dest: "{{ BACKUPDIR }}"
+        backup: true
+    - name: Sync files to {{ SOURCE_BRANCH }} version
+      ansible.builtin.git:
+        repo: "https://{{ GIT_USER }}:{{ GIT_PASS }}@code.immerda.ch/technat/js-buchsi.ch.git"
+        dest: "{{ WEBROOT }}"
+        single_branch: true
+        update: true
+        recursive: true
+        version: "{{ SOURCE_BRANCH }}"
