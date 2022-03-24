@@ -39,13 +39,16 @@ Wenn man das Playbook das allererste mal auf einen frischen Webspace ausrollt m�
 
 Note: Im Admin Panel kann nur der Content verändert werden, deshalb funktioniert der GitOps Approach um die Website zu deployen.
 
+
+#### User  
+
+Wenn man die Seite ohne Content zum ersten mal aufruft kommt ein Internal Server error. Unter /panel wird man aber von einer Login Maske begrüsst welche einem auffordert einen Admin Account anzulegen. Dies weil User unter `/site/accounts` angelegt werden und nicht Teil des Repositories ist.
+
 #### Content
 
 Der content vom `content` Ordner ist nicht Teil des Repositories (Ausnahme impressum und header Bild). Das bedeutet, dass die Webseite standardmässig ohne Inhalt daherkommt. Da der Inhalt auch nicht getracked wird, ist es wichtig diesen zu backupen. Das Playbook bietet die Option ein Backup des Webroots zu machen bevor die Files im Git gesynced werden.
 
-#### User  
-
-Wenn man die Seite ohne Content zum ersten mal aufruft, wird man von einer Login Maske begrüsst welche einem auffordert einen Admin Account anzulegen. Dies weil User unter `/site/accounts` angelegt werden und nicht Teil des Repositories ist.
+Wenn man im Panel eingeloggt ist zum ersten mal, muss sofort eine Home page angelegt und publik gestellt werden damit der Internal Server Error verschwindet.
 
 #### Lizenz
 
