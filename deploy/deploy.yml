@@ -16,6 +16,7 @@
         src: "{{ WEBROOT }}"
         dest: "{{ BACKUPDIR }}"
         backup: true
+        remote_src: true
     - name: Sync files to {{ SOURCE_BRANCH }} version
       ansible.builtin.git:
         repo: "https://{{ GIT_USER }}:{{ GIT_PASS }}@code.immerda.ch/technat/js-buchsi.ch.git"
