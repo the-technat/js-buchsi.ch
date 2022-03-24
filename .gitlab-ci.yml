@@ -1,4 +1,4 @@
-image: docker.io/cytopia/ansible:latest-tools
+image: registry.code.immerda.ch/k8s_at_hetzner/ci-image:master
 
 stages:
 - prepare
@@ -7,60 +7,61 @@ stages:
 variables:
   ANSIBLE_CONFIG: ${CI_PROJECT_DIR}/deploy/ansible.cfg
   ANSIBLE_ROOT: ${CI_PROJECT_DIR}/deploy/
- 
+
+  PIP_CACHE_DIR: ${ANSIBLE_ROOT}/.cache/pip
+  COLLECTIONS_PATH: ${ANSIBLE_ROOT}/.collections
+  VENV_DIR: ${ANSIBLE_ROOT}/venv
+
 cache:
   paths:
+  - ${PIP_CACHE_DIR}
+  - ${VENV_DIR}
+  - ${COLLECTIONS_PATH}
+
+# Init the workspace using this before_script for every ansible job
+# If a previous job already run the init and caching is enabled
+# the init will be faster (as deps already installed)
+.common_ansible: &common_ansible
+  before_script:
+    - python3 -V
+    - python3 -m venv ${VENV_DIR}
+    - source ${VENV_DIR}/bin/activate
+    - cd ${ANSIBLE_ROOT}
+    # - pip install -r requirements.txt
+    # - ansible-galaxy install -r requirements.yml
 
 validate:
+  <<: *common_ansible
   stage: prepare
-  image: docker.io/cytopia/ansible-lint:5
   script:
-    - cd ${ANSIBLE_ROOT}
-    - ansible-lint -v --show-relpath --parseable-severity --nocolor deploy.yml 
-  rules:
-  - changes:
-    - ${ANSIBLE_ROOT} 
+    - ansible-lint -v --show-relpath --nocolor deploy.yml 
 
 
 deploy_preview:
-  stage: deploy
-  image: docker.io/cytopia/ansible:latest-tools
-  before_script:
-    - python -V # Print out python version for debugging
-
-    # Install dependencies
-    # - pip install -r requirements.txt
-    # - ansible-galaxy install -r requirements.yml
-      
-    # Setup SSH-Agent using private key from CI/CD variable
-    - mkdir -p ~/.ssh
-    - chmod 700 ~/.ssh
-    - chmod 400 "$ansible_private_key"
-    - eval $(ssh-agent -s)
-    - ssh-add "$ansible_private_key" 
+  <<: *common_ansible
+  stage: deploy    
   script:
-  - ansible-playbook ${ANSIBLE_ROOT}/deploy.yml -v -e GIT_USER=${git_clone_token_user} -e GIT_PASS=${git_clone_token_pass}  
+    # Setup SSH-Agent using private key from CI/CD variable
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - chmod 400 "$ansible_private_key"
+  - eval $(ssh-agent -s)
+  - ssh-add "$ansible_private_key" 
+  - ansible-playbook deploy.yml -v -e GIT_USER=${git_clone_token_user} -e GIT_PASS=${git_clone_token_pass}  
   only:
   - develop
 
 deploy_prod:
+  <<: *common_ansible
   stage: deploy
-  image: docker.io/cytopia/ansible:latest-tools
-  before_script:
-    - python -V # Print out python version for debugging
-
-    # Install dependencies
-    # - pip install -r requirements.txt
-    # - ansible-galaxy install -r requirements.yml
-      
-    # Setup SSH-Agent using private key from CI/CD variable
-    - mkdir -p ~/.ssh
-    - chmod 700 ~/.ssh
-    - chmod 400 "$ansible_private_key"
-    - eval $(ssh-agent -s)
-    - ssh-add "$ansible_private_key" 
   script:
-  - ansible-playbook ${ANSIBLE_ROOT}/deploy.yml -v -e GIT_USER=${git_clone_token_user} -e GIT_PASS=${git_clone_token_pass} --extra-vars "@${ANSIBLE_ROOT}/vars_prod.yml"
+  # Setup SSH-Agent using private key from CI/CD variable
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - chmod 400 "$ansible_private_key"
+  - eval $(ssh-agent -s)
+  - ssh-add "$ansible_private_key" 
+  - ansible-playbook deploy.yml -v -e GIT_USER=${git_clone_token_user} -e GIT_PASS=${git_clone_token_pass} --extra-vars "vars_prod.yml"
   only:
   - master
   allow_failure: false

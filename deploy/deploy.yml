@@ -3,10 +3,20 @@
   hosts: all
   vars: # all variables used to deploy are defined here
     WEBROOT: "/home/clients/625287d9edbd32bee10d3b5946921928/sites/js-buchsi.ch/preview"
+    BACKUPDIR: "/home/clients/625287d9edbd32bee10d3b5946921928/backups/js-buchsi.ch/preview"
     SOURCE_BRANCH: "develop"
     GIT_USER: "sammy"
     GIT_PASS: "superSecure"
   tasks:
+  - name: Create backup dir
+    file:
+      path: "{{ BACKUPDIR }}"
+      state: directory
+  - name: Backup current Webroot to Backup dir
+    copy: 
+      src: "{{ WEBROOT }}"
+      dest: "{{ BACKUPDIR }}"
+      backup: yes
   - name: Sync files to {{ SOURCE_BRANCH }} version
     git:
       repo: "https://{{ GIT_USER }}:{{ GIT_PASS }}@code.immerda.ch/technat/js-buchsi.ch.git"
