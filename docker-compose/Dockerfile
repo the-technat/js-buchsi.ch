@@ -1,5 +1,5 @@
 # Use offical ubuntu:21.10 image
-FROM ubuntu:21.10
+FROM ubuntu
 
 # Set timezone
 ENV TZ=Europe/Zurich

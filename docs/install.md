@@ -41,11 +41,11 @@ Note: Im Admin Panel kann nur der Content verändert werden, deshalb funktionier
 
 #### Content
 
-Der content vom `content` Ordner ist nicht Teil des Repositories. Das bedeutet das die Webseite standardmässig ohne Inhalt daherkommt. Da der Inhalt auch nicht getracked wird, ist es wichtig diesen zu backupen. Das Playbook bietet die Option ein Backup via Cronjob auf dem selben Server einzurichten.
+Der content vom `content` Ordner ist nicht Teil des Repositories (Ausnahme impressum und header Bild). Das bedeutet, dass die Webseite standardmässig ohne Inhalt daherkommt. Da der Inhalt auch nicht getracked wird, ist es wichtig diesen zu backupen. Das Playbook bietet die Option ein Backup des Webroots zu machen bevor die Files im Git gesynced werden.
 
 #### User  
 
-Wenn man die Seite ohne Content zum ersten mal aufruft, wird man von einer Login Maske begrüsst welche einem auffordert einen Admin Account anzulegen. Dies weil User unter `/site/accounts` angelegt werden und dies nicht Teil des Repositories ist.
+Wenn man die Seite ohne Content zum ersten mal aufruft, wird man von einer Login Maske begrüsst welche einem auffordert einen Admin Account anzulegen. Dies weil User unter `/site/accounts` angelegt werden und nicht Teil des Repositories ist.
 
 #### Lizenz
 

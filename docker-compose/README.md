@@ -6,7 +6,7 @@ Use the `Dockerfile` and `docker-compose` file in this folder to spin up a local
 
 ## Prerequisites
 
-Change the id of your local user in the `id.env` file. Find your correct id using `id -u`.
+Change the id of your local user in the `.env` file. Find your correct id using `id -u`.
 
 To use the correct domain names add the following line to `/etc/hosts`:
 
@@ -16,7 +16,7 @@ To use the correct domain names add the following line to `/etc/hosts`:
 
 ## Docker
 
-```bash
+```console
 docker build -t docker-starterkit:dev .
 docker run -d --name mycontainer -p 80:80 \
   --mount type=bind,source=$(pwd)/../,destination=/var/www/html \
