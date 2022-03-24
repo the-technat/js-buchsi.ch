@@ -61,7 +61,7 @@ deploy_prod:
   - chmod 400 "$ansible_private_key"
   - eval $(ssh-agent -s)
   - ssh-add "$ansible_private_key"
-  - ansible-playbook deploy.yml -v -e GIT_USER=${git_clone_token_user} -e GIT_PASS=${git_clone_token_pass} --extra-vars "${ANSIBLE_ROOT}vars_prod.yml"
+  - ansible-playbook deploy.yml -v -e GIT_USER=${git_clone_token_user} -e GIT_PASS=${git_clone_token_pass} --extra-vars "@${ANSIBLE_ROOT}vars_prod.yml"
   only:
   - master
   allow_failure: false
