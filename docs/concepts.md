@@ -2,7 +2,6 @@
 
 This page lists some concepts the website follows and some logics are explained.
 
-
 ## Languages
 
 We are from switzerland and our target group all speaks german, so everything that will be visible in the panel or the website itself should be written in german. Everything that is not visible there like this doc or code itself shall be written in english.
@@ -13,7 +12,7 @@ We are from switzerland and our target group all speaks german, so everything th
 https://getkirby.com/plugins/sylvainjule/locator
 https://github.com/sylvainjule/kirby-locator
 
-Wird für den `JS-Nami` und `Lager` blueprint verwendet.
+User for the `JS-Nami` and `Lager` blueprint.
 
 ## Blueprints
 
