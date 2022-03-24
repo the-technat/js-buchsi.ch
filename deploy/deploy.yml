@@ -2,7 +2,7 @@
   hosts: all
   vars: # all variables used to deploy are defined here
     WEBROOT: "/home/clients/625287d9edbd32bee10d3b5946921928/sites/js-buchsi.ch/preview"
-    BACKUPDIR: "/home/clients/625287d9edbd32bee10d3b5946921928/backups/js-buchsi.ch/preview"
+    BACKUPDIR: "/home/clients/625287d9edbd32bee10d3b5946921928/sites/js-buchsi.ch/backup/preview"
     SOURCE_BRANCH: "develop"
     GIT_USER: "sammy"
     GIT_PASS: "superSecure"

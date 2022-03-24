@@ -1,4 +1,4 @@
 ---
 WEBROOT: "/home/clients/625287d9edbd32bee10d3b5946921928/sites/js-buchsi.ch/prod"
-BACKUPDIR: "/home/clients/625287d9edbd32bee10d3b5946921928/backups/js-buchsi.ch/prod"
+BACKUPDIR: "/home/clients/625287d9edbd32bee10d3b5946921928/sites/js-buchsi.ch/backup/prod"
 SOURCE_BRANCH: "master"
