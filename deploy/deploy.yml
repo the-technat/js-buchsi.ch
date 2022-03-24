@@ -9,11 +9,11 @@
     GIT_PASS: "superSecure"
   tasks:
   - name: Create backup dir
-    file:
+    ansible.builtin.file:
       path: "{{ BACKUPDIR }}"
       state: directory
   - name: Backup current Webroot to Backup dir
-    copy: 
+    ansible.builtin.copy: 
       src: "{{ WEBROOT }}"
       dest: "{{ BACKUPDIR }}"
       backup: yes
