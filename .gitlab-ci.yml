@@ -34,20 +34,20 @@ validate:
   <<: *common_ansible
   stage: prepare
   script:
-    - ansible-lint -v --show-relpath --nocolor deploy.yml 
+    - ansible-lint -v --show-relpath --nocolor deploy.yml
 
 
 deploy_preview:
   <<: *common_ansible
-  stage: deploy    
+  stage: deploy
   script:
     # Setup SSH-Agent using private key from CI/CD variable
   - mkdir -p ~/.ssh
   - chmod 700 ~/.ssh
   - chmod 400 "$ansible_private_key"
   - eval $(ssh-agent -s)
-  - ssh-add "$ansible_private_key" 
-  - ansible-playbook deploy.yml -v -e GIT_USER=${git_clone_token_user} -e GIT_PASS=${git_clone_token_pass}  
+  - ssh-add "$ansible_private_key"
+  - ansible-playbook deploy.yml -v -e GIT_USER=${git_clone_token_user} -e GIT_PASS=${git_clone_token_pass}
   only:
   - develop
 
@@ -60,8 +60,8 @@ deploy_prod:
   - chmod 700 ~/.ssh
   - chmod 400 "$ansible_private_key"
   - eval $(ssh-agent -s)
-  - ssh-add "$ansible_private_key" 
-  - ansible-playbook deploy.yml -v -e GIT_USER=${git_clone_token_user} -e GIT_PASS=${git_clone_token_pass} --extra-vars "${ANSIBLE_ROOT}/vars_prod.yml"
+  - ssh-add "$ansible_private_key"
+  - ansible-playbook deploy.yml -v -e GIT_USER=${git_clone_token_user} -e GIT_PASS=${git_clone_token_pass} --extra-vars "${ANSIBLE_ROOT}vars_prod.yml"
   only:
   - master
   allow_failure: false
